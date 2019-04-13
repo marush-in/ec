@@ -26,6 +26,12 @@
                 {{ faq_info.description }}
               {% endautoescape %}
             </div>
+            <div>
+              {% for faq in faqs %}
+                <h3>{{ faq.question }}</h3>
+                <p>{{ faq.answer }}</p>
+              {% endfor %}
+            </div>
           </div>
         </div>
       </div>

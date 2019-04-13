@@ -70,6 +70,9 @@ class LegalAdmin(SummernoteModelAdmin):
 class FaqContentAdmin(SummernoteModelAdmin):
     list_display = ('id', 'question',)
     list_per_page = 20
+    formfield_overrides = {
+        models.CharField: {'widget': TextInput(attrs={'size': '100'})},
+    }
 
 
 admin.site.register(Settings, SettingsAdmin)
