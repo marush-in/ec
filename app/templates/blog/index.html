@@ -12,7 +12,6 @@
 
 {% block content %}
   {% load static %}
-  <!-- ##### Breadcumb Area Start ##### -->
   <div class="breadcumb_area breadcumb-style-two bg-img" style="background-image: url({% static 'img/bg-img/breadcumb2.jpg' %});">
     <div class="container h-100">
       <div class="row h-100 align-items-center">
@@ -24,127 +23,27 @@
       </div>
     </div>
   </div>
-  <!-- ##### Breadcumb Area End ##### -->
-  <!-- ##### Blog Wrapper Area Start ##### -->
   <div class="blog-wrapper section-padding-80">
     <div class="container">
       <div class="row">
-        <!-- Single Blog Area -->
-        <div class="col-12 col-lg-6">
-          <div class="single-blog-area mb-50">
-            <img src="{% static 'img/bg-img/blog1.jpg' %}" alt="">
-            <!-- Post Title -->
-            <div class="post-title">
-              <a href="#">Vivamus sed nunc in arcu cursus mollis quis et orci. Interdum et malesuada</a>
-            </div>
-            <!-- Hover Content -->
-            <div class="hover-content">
-              <!-- Post Title -->
-              <div class="hover-post-title">
-                <a href="#">Vivamus sed nunc in arcu cursus mollis quis et orci. Interdum et malesuada</a>
+        {% for post in posts %}
+          <div class="col-12 col-lg-6">
+            <div class="single-blog-area mb-50">
+              <img src="{{ post.eyecatch.url }}" alt="">
+              <div class="post-title">
+                <a href="{% url 'blog:post-detail' post.slug %}">{{ post.title }}</a>
               </div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus in, sagittis fringilla tortor. Phasellus purus dignissim convallis.</p>
-              <a href="#">Continue reading <i class="fa fa-angle-right"></i></a>
+              <div class="hover-content">
+                <div class="hover-post-title">
+                  <a href="{% url 'blog:post-detail' post.slug %}">{{ post.title }}</a>
+                </div>
+                <p>{{ post.description | truncatechars:162 }}</p>
+                <a href="{% url 'blog:post-detail' post.slug %}">Continue reading <i class="fa fa-angle-right"></i></a>
+              </div>
             </div>
           </div>
-        </div>
-        <!-- Single Blog Area -->
-        <div class="col-12 col-lg-6">
-          <div class="single-blog-area mb-50">
-            <img src="{% static 'img/bg-img/blog2.jpg' %}" alt="">
-            <!-- Post Title -->
-            <div class="post-title">
-              <a href="#">Vivamus sed nunc in arcu cursus mollis quis et orci. Interdum et malesuada</a>
-            </div>
-            <!-- Hover Content -->
-            <div class="hover-content">
-              <!-- Post Title -->
-              <div class="hover-post-title">
-                  <a href="#">Vivamus sed nunc in arcu cursus mollis quis et orci. Interdum et malesuada</a>
-              </div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus in, sagittis fringilla tortor. Phasellus purus dignissim convallis.</p>
-              <a href="#">Continue reading <i class="fa fa-angle-right"></i></a>
-            </div>
-          </div>
-        </div>
-        <!-- Single Blog Area -->
-        <div class="col-12 col-lg-6">
-          <div class="single-blog-area mb-50">
-            <img src="{% static 'img/bg-img/blog3.jpg' %}" alt="">
-            <!-- Post Title -->
-            <div class="post-title">
-              <a href="#">Vivamus sed nunc in arcu cursus mollis quis et orci. Interdum et malesuada</a>
-            </div>
-            <!-- Hover Content -->
-            <div class="hover-content">
-              <!-- Post Title -->
-              <div class="hover-post-title">
-                  <a href="#">Vivamus sed nunc in arcu cursus mollis quis et orci. Interdum et malesuada</a>
-              </div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus in, sagittis fringilla tortor. Phasellus purus dignissim convallis.</p>
-              <a href="#">Continue reading <i class="fa fa-angle-right"></i></a>
-            </div>
-          </div>
-        </div>
-        <!-- Single Blog Area -->
-        <div class="col-12 col-lg-6">
-          <div class="single-blog-area mb-50">
-            <img src="{% static 'img/bg-img/blog4.jpg' %}" alt="">
-            <!-- Post Title -->
-            <div class="post-title">
-              <a href="#">Vivamus sed nunc in arcu cursus mollis quis et orci. Interdum et malesuada</a>
-            </div>
-            <!-- Hover Content -->
-            <div class="hover-content">
-              <!-- Post Title -->
-              <div class="hover-post-title">
-                <a href="#">Vivamus sed nunc in arcu cursus mollis quis et orci. Interdum et malesuada</a>
-              </div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus in, sagittis fringilla tortor. Phasellus purus dignissim convallis.</p>
-              <a href="#">Continue reading <i class="fa fa-angle-right"></i></a>
-            </div>
-          </div>
-        </div>
-        <!-- Single Blog Area -->
-        <div class="col-12 col-lg-6">
-          <div class="single-blog-area mb-50">
-            <img src="{% static 'img/bg-img/blog5.jpg' %}" alt="">
-            <!-- Post Title -->
-            <div class="post-title">
-              <a href="#">Vivamus sed nunc in arcu cursus mollis quis et orci. Interdum et malesuada</a>
-            </div>
-            <!-- Hover Content -->
-            <div class="hover-content">
-              <!-- Post Title -->
-              <div class="hover-post-title">
-                  <a href="#">Vivamus sed nunc in arcu cursus mollis quis et orci. Interdum et malesuada</a>
-              </div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus in, sagittis fringilla tortor. Phasellus purus dignissim convallis.</p>
-              <a href="#">Continue reading <i class="fa fa-angle-right"></i></a>
-            </div>
-          </div>
-        </div>
-        <!-- Single Blog Area -->
-        <div class="col-12 col-lg-6">
-          <div class="single-blog-area mb-50">
-            <img src="{% static 'img/bg-img/blog6.jpg' %}" alt="">
-            <!-- Post Title -->
-            <div class="post-title">
-              <a href="#">Vivamus sed nunc in arcu cursus mollis quis et orci. Interdum et malesuada</a>
-            </div>
-            <!-- Hover Content -->
-            <div class="hover-content">
-              <!-- Post Title -->
-              <div class="hover-post-title">
-                  <a href="#">Vivamus sed nunc in arcu cursus mollis quis et orci. Interdum et malesuada</a>
-              </div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus in, sagittis fringilla tortor. Phasellus purus dignissim convallis.</p>
-              <a href="#">Continue reading <i class="fa fa-angle-right"></i></a>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </div>
-  <!-- ##### Blog Wrapper Area End ##### -->
 {% endblock %}
