@@ -8,6 +8,7 @@ from .models import (
     Guide,
     Privacy_policy,
     Company,
+    Terms_of_use,
     Faq,
     Legal,
     Faq_content
@@ -26,7 +27,7 @@ class GuideAdmin(SummernoteModelAdmin):
     }
 
 
-class Privacy_policyAdmin(SummernoteModelAdmin):
+class PrivacyPolicyAdmin(SummernoteModelAdmin):
     summernote_fields = ('content',)
     list_display = ('id', 'title')
     formfield_overrides = {
@@ -35,6 +36,14 @@ class Privacy_policyAdmin(SummernoteModelAdmin):
 
 
 class CompanyAdmin(SummernoteModelAdmin):
+    summernote_fields = ('content',)
+    list_display = ('id', 'title')
+    formfield_overrides = {
+        models.CharField: {'widget': TextInput(attrs={'size': '100'})},
+    }
+
+
+class TermsOfUseAdmin(SummernoteModelAdmin):
     summernote_fields = ('content',)
     list_display = ('id', 'title')
     formfield_overrides = {
@@ -58,15 +67,16 @@ class LegalAdmin(SummernoteModelAdmin):
     }
 
 
-class Faq_contentAdmin(SummernoteModelAdmin):
+class FaqContentAdmin(SummernoteModelAdmin):
     list_display = ('id', 'question',)
     list_per_page = 20
 
 
 admin.site.register(Settings, SettingsAdmin)
 admin.site.register(Guide, GuideAdmin)
-admin.site.register(Privacy_policy, Privacy_policyAdmin)
+admin.site.register(Privacy_policy, PrivacyPolicyAdmin)
 admin.site.register(Company, CompanyAdmin)
+admin.site.register(Terms_of_use, TermsOfUseAdmin)
 admin.site.register(Faq, FaqAdmin)
 admin.site.register(Legal, LegalAdmin)
-admin.site.register(Faq_content, Faq_contentAdmin)
+admin.site.register(Faq_content, FaqContentAdmin)

@@ -79,6 +79,21 @@ class Company(models.Model):
         return self.title
 
 
+class Terms_of_use(models.Model):
+    title = models.CharField(verbose_name='タイトル', max_length=160)
+    description = models.CharField(verbose_name='ディスクリプション', max_length=240)
+    content = models.TextField(verbose_name='本文', max_length=40000)
+    created_at = models.DateTimeField(verbose_name='作成日時', auto_now_add=True)
+    updated_at = models.DateTimeField(verbose_name='更新日時', auto_now=True)
+
+    class Meta:
+        verbose_name = 'ご利用規約'
+        verbose_name_plural = 'ご利用規約'
+
+    def __str__(self):
+        return self.title
+
+
 class Faq(models.Model):
     title = models.CharField(verbose_name='タイトル', max_length=160)
     description = models.CharField(verbose_name='ディスクリプション', max_length=240)
