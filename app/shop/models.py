@@ -27,8 +27,8 @@ class Settings(models.Model):
     updated_at = models.DateTimeField(verbose_name='更新日時', auto_now=True)
 
     class Meta:
-        verbose_name = 'ご利用ガイド'
-        verbose_name_plural = 'ご利用ガイド'
+        verbose_name = 'サイト基本情報'
+        verbose_name_plural = 'サイト基本情報'
 
     def __str__(self):
         return self.site_name
