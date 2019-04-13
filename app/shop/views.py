@@ -7,3 +7,7 @@ def index(request):
 
 def guide(request):
     return render(request, 'shop/guide.html')
+
+
+def privacy_policy(request):
+    return render(request, 'shop/privacy_policy.html')
