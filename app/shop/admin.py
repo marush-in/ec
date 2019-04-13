@@ -45,6 +45,9 @@ class CompanyAdmin(SummernoteModelAdmin):
 class FaqAdmin(SummernoteModelAdmin):
     summernote_fields = ('content',)
     list_display = ('id', 'title')
+    formfield_overrides = {
+        models.CharField: {'widget': TextInput(attrs={'size': '100'})},
+    }
 
 
 class LegalAdmin(SummernoteModelAdmin):
