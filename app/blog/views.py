@@ -7,7 +7,7 @@ from .models import Post, Category
 class PostListView(ListView):
     model = Post
     queryset = Post.objects.filter(is_published=True).order_by('-created_at')
-    paginate_by = 2
+    paginate_by = 8
     context_object_name = 'posts'
     template_name = 'blog/index.html'
 
