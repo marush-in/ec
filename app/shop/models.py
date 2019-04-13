@@ -3,11 +3,11 @@ from django.db import models
 
 class Settings(models.Model):
     site_name = models.CharField(verbose_name='サイト名', max_length=160)
-    site_description = models.CharField(verbose_name='サイトの説明', max_length=240)
+    site_description = models.TextField(verbose_name='サイトの説明', max_length=240)
     ogp_iamge = models.ImageField(
         verbose_name='OGP画像', upload_to='uploads/', max_length=320, blank=True
     )
-    ga_tag = models.CharField(
+    ga_tag = models.TextField(
         verbose_name='GoogleAnalyticsタグ', max_length=600, blank=True
     )
     instagram = models.CharField(
@@ -36,7 +36,7 @@ class Settings(models.Model):
 
 class Guide(models.Model):
     title = models.CharField(verbose_name='タイトル', max_length=160)
-    description = models.CharField(verbose_name='ディスクリプション', max_length=240)
+    description = models.TextField(verbose_name='ディスクリプション', max_length=240)
     content = models.TextField(verbose_name='本文', max_length=40000)
     created_at = models.DateTimeField(verbose_name='作成日時', auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='更新日時', auto_now=True)
@@ -51,7 +51,7 @@ class Guide(models.Model):
 
 class Privacy_policy(models.Model):
     title = models.CharField(verbose_name='タイトル', max_length=160)
-    description = models.CharField(verbose_name='ディスクリプション', max_length=240)
+    description = models.TextField(verbose_name='ディスクリプション', max_length=240)
     content = models.TextField(verbose_name='本文', max_length=40000)
     created_at = models.DateTimeField(verbose_name='作成日時', auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='更新日時', auto_now=True)
@@ -66,7 +66,7 @@ class Privacy_policy(models.Model):
 
 class Company(models.Model):
     title = models.CharField(verbose_name='タイトル', max_length=160)
-    description = models.CharField(verbose_name='ディスクリプション', max_length=240)
+    description = models.TextField(verbose_name='ディスクリプション', max_length=240)
     content = models.TextField(verbose_name='本文', max_length=40000)
     created_at = models.DateTimeField(verbose_name='作成日時', auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='更新日時', auto_now=True)
@@ -81,7 +81,7 @@ class Company(models.Model):
 
 class Terms_of_use(models.Model):
     title = models.CharField(verbose_name='タイトル', max_length=160)
-    description = models.CharField(verbose_name='ディスクリプション', max_length=240)
+    description = models.TextField(verbose_name='ディスクリプション', max_length=240)
     content = models.TextField(verbose_name='本文', max_length=40000)
     created_at = models.DateTimeField(verbose_name='作成日時', auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='更新日時', auto_now=True)
@@ -96,7 +96,7 @@ class Terms_of_use(models.Model):
 
 class Faq(models.Model):
     title = models.CharField(verbose_name='タイトル', max_length=160)
-    description = models.CharField(verbose_name='ディスクリプション', max_length=240)
+    description = models.TextField(verbose_name='ディスクリプション', max_length=240)
     content = models.TextField(verbose_name='本文', max_length=40000)
     created_at = models.DateTimeField(verbose_name='作成日時', auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='更新日時', auto_now=True)
@@ -111,7 +111,7 @@ class Faq(models.Model):
 
 class Legal(models.Model):
     title = models.CharField(verbose_name='タイトル', max_length=160)
-    description = models.CharField(verbose_name='ディスクリプション', max_length=240)
+    description = models.TextField(verbose_name='ディスクリプション', max_length=240)
     content = models.TextField(verbose_name='本文', max_length=40000)
     created_at = models.DateTimeField(verbose_name='作成日時', auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='更新日時', auto_now=True)
@@ -126,7 +126,7 @@ class Legal(models.Model):
 
 class Faq_content(models.Model):
     question = models.CharField(verbose_name='質問', max_length=2000)
-    answer = models.CharField(verbose_name='答え', max_length=2000)
+    answer = models.TextField(verbose_name='答え', max_length=2000)
     created_at = models.DateTimeField(verbose_name='作成日時', auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='更新日時', auto_now=True)
 

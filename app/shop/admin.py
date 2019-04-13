@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.db import models
-from django.forms import TextInput
+from django.forms import TextInput, Textarea
 from django_summernote.admin import SummernoteModelAdmin
 
 from .models import (
@@ -17,6 +17,10 @@ from .models import (
 
 class SettingsAdmin(admin.ModelAdmin):
     list_display = ('id', 'site_name')
+    formfield_overrides = {
+        models.CharField: {'widget': TextInput(attrs={'size': '100'})},
+        models.TextField: {'widget': Textarea(attrs={'cols': 100})},
+    }
 
 
 class GuideAdmin(SummernoteModelAdmin):
@@ -24,6 +28,7 @@ class GuideAdmin(SummernoteModelAdmin):
     list_display = ('id', 'title')
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size': '100'})},
+        models.TextField: {'widget': Textarea(attrs={'rows': 4, 'cols': 100})},
     }
 
 
@@ -32,6 +37,7 @@ class PrivacyPolicyAdmin(SummernoteModelAdmin):
     list_display = ('id', 'title')
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size': '100'})},
+        models.TextField: {'widget': Textarea(attrs={'rows': 4, 'cols': 100})},
     }
 
 
@@ -40,6 +46,7 @@ class CompanyAdmin(SummernoteModelAdmin):
     list_display = ('id', 'title')
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size': '100'})},
+        models.TextField: {'widget': Textarea(attrs={'rows': 4, 'cols': 100})},
     }
 
 
@@ -48,6 +55,7 @@ class TermsOfUseAdmin(SummernoteModelAdmin):
     list_display = ('id', 'title')
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size': '100'})},
+        models.TextField: {'widget': Textarea(attrs={'rows': 4, 'cols': 100})},
     }
 
 
@@ -56,6 +64,7 @@ class FaqAdmin(SummernoteModelAdmin):
     list_display = ('id', 'title')
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size': '100'})},
+        models.TextField: {'widget': Textarea(attrs={'rows': 4, 'cols': 100})},
     }
 
 
@@ -64,14 +73,16 @@ class LegalAdmin(SummernoteModelAdmin):
     list_display = ('id', 'title')
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size': '100'})},
+        models.TextField: {'widget': Textarea(attrs={'rows': 4, 'cols': 100})},
     }
 
 
-class FaqContentAdmin(SummernoteModelAdmin):
+class FaqContentAdmin(admin.ModelAdmin):
     list_display = ('id', 'question',)
     list_per_page = 20
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size': '100'})},
+        models.TextField: {'widget': Textarea(attrs={'rows': 4, 'cols': 100})},
     }
 
 
