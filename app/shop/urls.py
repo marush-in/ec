@@ -1,14 +1,22 @@
 from django.urls import path
-from . import views
+from .views import (
+    IndevView,
+    GuideView,
+    PrivacyPolicyView,
+    CompanyView,
+    TermsOfUseView,
+    FaqView,
+    Legal
+)
 
 app_name = 'shop'
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('guide/', views.guide, name='guide'),
-    path('privacy_policy/', views.privacy_policy, name='privacy_policy'),
-    path('company/', views.privacy_policy, name='company'),
-    path('terms_of_use/', views.terms_of_use, name='terms_of_use'),
-    path('faq/', views.faq, name='faq'),
-    path('legal/', views.legal, name='legal'),
+    path('', IndevView.as_view(), name='index'),
+    path('guide/', GuideView.as_view(), name='guide'),
+    path('privacy_policy/', PrivacyPolicyView.as_view(), name='privacy_policy'),
+    path('company/', CompanyView.as_view(), name='company'),
+    path('terms_of_use/', TermsOfUseView.as_view(), name='terms_of_use'),
+    path('faq/', FaqView.as_view(), name='faq'),
+    path('legal/', Legal.as_view(), name='legal'),
 ]

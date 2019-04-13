@@ -1,29 +1,29 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
 
 
-def index(request):
-    return render(request, 'shop/index.html')
+class IndevView(TemplateView):
+    template_name = 'shop/index.html'
 
 
-def guide(request):
-    return render(request, 'shop/guide.html')
+class GuideView(TemplateView):
+    template_name = 'shop/guide.html'
 
 
-def privacy_policy(request):
-    return render(request, 'shop/privacy_policy.html')
+class PrivacyPolicyView(TemplateView):
+    template_name = 'shop/privacy_policy.html'
 
 
-def company(request):
-    return render(request, 'shop/company.html')
+class CompanyView(TemplateView):
+    template_name = 'shop/company.html'
 
 
-def terms_of_use(request):
-    return render(request, 'shop/terms_of_use.html')
+class TermsOfUseView(TemplateView):
+    template_name = 'shop/terms_of_use.html'
 
 
-def faq(request):
-    return render(request, 'shop/faq.html')
+class FaqView(TemplateView):
+    template_name = 'shop/faq.html'
 
 
-def legal(request):
-    return render(request, 'shop/legal.html')
+class Legal(TemplateView):
+    template_name = 'shop/legal.html'
