@@ -29,7 +29,11 @@
         {% for post in posts %}
           <div class="col-12 col-lg-6">
             <div class="single-blog-area mb-50">
-              <img src="{{ post.eyecatch.url }}" alt="">
+              {% if post.eyecatch　%}
+                <img src="{{ post.eyecatch.url }}" alt="">
+              {% else %}
+                <img src="{% static 'img/blog/noimage.png' %}" alt="">
+              {% endif %}
               <div class="post-title">
                 <a href="{% url 'blog:post-detail' post.slug %}">{{ post.title }}</a>
               </div>
@@ -44,6 +48,7 @@
           </div>
         {% endfor %}
       </div>
+      {% include 'includes/pagination.html' %}
     </div>
   </div>
 {% endblock %}
