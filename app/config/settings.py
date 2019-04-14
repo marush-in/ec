@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_summernote',
+    'contacts.apps.ContactsConfig',
     'blog.apps.BlogConfig',
     'shop.apps.ShopConfig',
 ]
