@@ -1,3 +1,55 @@
-{% for post in posts %}
-  <a href="{% url 'blog:post-detail' post.slug %}">{{ post.title }}</a>
-{% endfor %}
+{% extends 'base.html' %}
+
+{% block title %}{{ category.name }}に関する記事一覧{% endblock %}
+{% block description %}{{ category.name }}のカテゴリーページです。{% endblock %}
+{% block og_title %}{{ category.name }}に関する記事一覧{% endblock %}
+{% block og_description %}{{ category.name }}のカテゴリーページです。{% endblock %}
+{% block ogp_type %}website{% endblock %}
+{% block og_url %}{% endblock %}
+{% block og_image %}{% endblock %}
+{% block tw_description %}{{ category.name }}のカテゴリーページです。{% endblock %}
+{% block tw_image %}{% endblock %}
+
+{% block content %}
+  {% load static %}
+  <div class="breadcumb_area breadcumb-style-two bg-img" style="background-image: url({% static 'img/bg-img/breadcumb2.jpg' %});">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12">
+          <div class="page-title text-center">
+            <h2>Blog</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="blog-wrapper section-padding-80">
+    <div class="container">
+      <h2 class="text-center mb-5">{{ category.name }}に関する記事一覧</h2>
+      <div class="row">
+        {% for post in posts %}
+          <div class="col-12 col-lg-6">
+            <div class="single-blog-area mb-50">
+              {% if post.eyecatch　%}
+                <img src="{{ post.eyecatch.url }}" alt="">
+              {% else %}
+                <img src="{% static 'img/blog/noimage.png' %}" alt="">
+              {% endif %}
+              <div class="post-title">
+                <a href="{% url 'blog:post-detail' post.slug %}">{{ post.title }}</a>
+              </div>
+              <div class="hover-content">
+                <div class="hover-post-title">
+                  <a href="{% url 'blog:post-detail' post.slug %}">{{ post.title }}</a>
+                </div>
+                <p>{{ post.description | truncatechars:162 }}</p>
+                <a href="{% url 'blog:post-detail' post.slug %}">Continue reading <i class="fa fa-angle-right"></i></a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      {% include 'includes/pagination.html' %}
+    </div>
+  </div>
+{% endblock %}
