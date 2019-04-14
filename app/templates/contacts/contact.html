@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+{% block description %}{% endblock %}
+{% block og_title %}{% endblock %}
+{% block og_description %}{% endblock %}
+{% block ogp_type %}website{% endblock %}
+{% block og_url %}{% endblock %}
+{% block og_image %}{% endblock %}
+{% block tw_description %}{{% endblock %}
+{% block tw_image %}{% endblock %}
+
+{% block content %}
+  {% load static %}
+  <div class="single-blog-wrapper">
+    <div class="single-blog-post-thumb">
+      <img src="{% static 'img/bg-img/bg-8.jpg' %}" alt="">
+    </div>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8">
+          <div class="regular-page-content-wrapper section-padding-80">
+            <div class="regular-page-text">
+              <h2>{{ faq_info.title }}</h2>
+              {% autoescape off %}
+                {{ faq_info.description }}
+              {% endautoescape %}
+            </div>
+            <div>
+              {% for faq in faqs %}
+                <h3>{{ faq.question }}</h3>
+                <p>{{ faq.answer }}</p>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
