@@ -14,6 +14,7 @@ class PostAdmin(SummernoteModelAdmin):
     list_display = (
         'id', 'title', 'slug', 'is_published', 'created_at',
     )
+    list_display_links = ['title']
     list_editable = ['is_published']
     list_per_page = 20
 

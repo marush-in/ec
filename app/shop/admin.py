@@ -17,6 +17,7 @@ from .models import (
 
 class SettingsAdmin(admin.ModelAdmin):
     list_display = ('id', 'site_name')
+    list_display_links = ['site_name']
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size': '100'})},
         models.TextField: {'widget': Textarea(attrs={'cols': 100})},
@@ -26,6 +27,7 @@ class SettingsAdmin(admin.ModelAdmin):
 class GuideAdmin(SummernoteModelAdmin):
     summernote_fields = ('content',)
     list_display = ('id', 'title')
+    list_display_links = ['title']
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size': '100'})},
         models.TextField: {'widget': Textarea(attrs={'rows': 4, 'cols': 100})},
@@ -35,6 +37,7 @@ class GuideAdmin(SummernoteModelAdmin):
 class PrivacyPolicyAdmin(SummernoteModelAdmin):
     summernote_fields = ('content',)
     list_display = ('id', 'title')
+    list_display_links = ['title']
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size': '100'})},
         models.TextField: {'widget': Textarea(attrs={'rows': 4, 'cols': 100})},
@@ -44,6 +47,7 @@ class PrivacyPolicyAdmin(SummernoteModelAdmin):
 class CompanyAdmin(SummernoteModelAdmin):
     summernote_fields = ('content',)
     list_display = ('id', 'title')
+    list_display_links = ['title']
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size': '100'})},
         models.TextField: {'widget': Textarea(attrs={'rows': 4, 'cols': 100})},
@@ -53,6 +57,7 @@ class CompanyAdmin(SummernoteModelAdmin):
 class TermsOfUseAdmin(SummernoteModelAdmin):
     summernote_fields = ('content',)
     list_display = ('id', 'title')
+    list_display_links = ['title']
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size': '100'})},
         models.TextField: {'widget': Textarea(attrs={'rows': 4, 'cols': 100})},
@@ -62,6 +67,7 @@ class TermsOfUseAdmin(SummernoteModelAdmin):
 class FaqAdmin(SummernoteModelAdmin):
     summernote_fields = ('content',)
     list_display = ('id', 'title')
+    list_display_links = ['title']
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size': '100'})},
         models.TextField: {'widget': Textarea(attrs={'rows': 4, 'cols': 100})},
@@ -71,6 +77,7 @@ class FaqAdmin(SummernoteModelAdmin):
 class LegalAdmin(SummernoteModelAdmin):
     summernote_fields = ('content',)
     list_display = ('id', 'title')
+    list_display_links = ['title']
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size': '100'})},
         models.TextField: {'widget': Textarea(attrs={'rows': 4, 'cols': 100})},
@@ -78,7 +85,8 @@ class LegalAdmin(SummernoteModelAdmin):
 
 
 class FaqContentAdmin(admin.ModelAdmin):
-    list_display = ('id', 'question',)
+    list_display = ('id', 'question', 'answer')
+    list_display_links = ['question']
     list_per_page = 20
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size': '100'})},
