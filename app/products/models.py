@@ -16,7 +16,7 @@ class Category(models.Model):
 
 
 class Brand(models.Model):
-    name = models.Model(verbose_name='名前', max_length=250, unique=True)
+    name = models.CharField(verbose_name='名前', max_length=250, unique=True)
     slug = models.SlugField(verbose_name='URL', max_length=250, unique=True)
     logo = models.ImageField(
         verbose_name='ロゴ画像', upload_to='uploads/', max_length=320, blank=True
@@ -33,7 +33,7 @@ class Brand(models.Model):
 
 
 class Product(models.Model):
-    name = models.Model(verbose_name='商品名', max_length=250)
+    name = models.CharField(verbose_name='商品名', max_length=250)
     description = models.TextField(verbose_name='商品説明', max_length=40000)
     slug = models.SlugField(verbose_name='URL', max_length=250, unique=True)
     category = models.ForeignKey(

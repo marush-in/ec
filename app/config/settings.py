@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'contacts.apps.ContactsConfig',
     'blog.apps.BlogConfig',
+    'products.apps.ProductsConfig',
     'shop.apps.ShopConfig',
 ]
 
