@@ -41,3 +41,11 @@ services:
       POSTGRES_USER:     ${DATABASE_USER}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
     restart: always
+  
+  ec-mail:
+    image: mailhog/mailhog
+    container_name: ec-mail
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    restart: always
