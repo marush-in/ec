@@ -118,3 +118,10 @@ STATIC_ROOT = '/var/www/ec/static'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/var/www/ec/media'
+
+
+# Admin Site
+# ADMIN_URL =
+ADMIN_SITE_TITLE = 'ECサイト管理画面'
+ADMIN_SITE_HEADER = 'ECサイト管理画面'
+ADMIN_INDEX_TITLE = 'メニュー'
