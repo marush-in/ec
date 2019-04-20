@@ -9,7 +9,7 @@ from .models import (
     Legal,
     Faq_content
 )
-from products.models import Brand
+from products.models import Brand, Category
 
 
 class IndevView(TemplateView):
@@ -18,6 +18,7 @@ class IndevView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['brand_logos'] = Brand.objects.order_by('-created_at')[:6]
+        context['categories'] = Category.objects.order_by('-created_at')[:6]
         return context
 
 

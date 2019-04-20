@@ -4,6 +4,12 @@ from django.db import models
 class Category(models.Model):
     name = models.CharField(verbose_name='名前', max_length=250, unique=True)
     slug = models.SlugField(verbose_name='URL', max_length=250, unique=True)
+    image = models.ImageField(
+        verbose_name='カテゴリー写真',
+        upload_to='uploads/',
+        max_length=320,
+        blank=True
+    )
     created_at = models.DateTimeField(verbose_name='作成日時', auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='更新日時', auto_now=True)
 

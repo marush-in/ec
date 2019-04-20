@@ -11,6 +11,6 @@ urlpatterns = [
     path(
         'category/<slug>/',
         ProductListByCategoryView.as_view(),
-        name='category'
+        name='products-category'
     ),
 ]
