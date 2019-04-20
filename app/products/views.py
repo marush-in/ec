@@ -9,6 +9,11 @@ class ProductListView(ListView):
     paginate_by = 12
     context_object_name = 'products'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['product_count'] = Product.objects.filter(is_published=True).count()
+        return context
+
 
 class ProductDetailView(DetailView):
     model = Product
@@ -32,4 +37,11 @@ class ProductListByCategoryView(ListView):
         context['category'] = get_object_or_404(
             Category, slug=self.kwargs['slug']
         )
+        context['product_count'] = self.get_products_category_count()
         return context
+
+    def get_products_category_count(self):
+        category = get_object_or_404(Category, slug=self.kwargs['slug'])
+        return Product.objects.filter(
+            category=category, is_published=True
+        ).count()
