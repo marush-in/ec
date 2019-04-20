@@ -114,10 +114,10 @@ USE_TZ = True
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_URL = '/static/'
-STATIC_ROOT = '/var/www/ec/static'
+STATIC_ROOT = '/var/www/static'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = '/var/www/ec/media'
+MEDIA_ROOT = '/var/www/media'
 
 
 # Admin Site

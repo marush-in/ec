@@ -179,23 +179,10 @@
     </div>
   </section>
   <div class="brands-area d-flex align-items-center justify-content-between">
-    <div class="single-brands-logo">
-      <img src="{% static 'img/core-img/brand1.png' %}" alt="">
-    </div>
-    <div class="single-brands-logo">
-      <img src="{% static 'img/core-img/brand2.png' %}" alt="">
-    </div>
-    <div class="single-brands-logo">
-      <img src="{% static 'img/core-img/brand3.png' %}" alt="">
-    </div>
-    <div class="single-brands-logo">
-      <img src="{% static 'img/core-img/brand4.png' %}" alt="">
-    </div>
-    <div class="single-brands-logo">
-      <img src="{% static 'img/core-img/brand5.png' %}" alt="">
-    </div>
-    <div class="single-brands-logo">
-      <img src="{% static 'img/core-img/brand6.png' %}" alt="">
-    </div>
+    {% for brand_logo in brand_logos %}
+      <div class="single-brands-logo">
+        <img src="{{ brand_logo.logo.url }}" alt="">
+      </div>
+    {% endfor %}
   </div>
 {% endblock %}

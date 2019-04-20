@@ -1,7 +1,6 @@
 from django.views.generic import TemplateView
 
 from .models import (
-    Settings,
     Guide,
     Privacy_policy,
     Company,
@@ -10,10 +9,16 @@ from .models import (
     Legal,
     Faq_content
 )
+from products.models import Brand
 
 
 class IndevView(TemplateView):
     template_name = 'shop/index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['brand_logos'] = Brand.objects.order_by('-created_at')[:6]
+        return context
 
 
 class GuideView(TemplateView):
