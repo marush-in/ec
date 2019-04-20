@@ -44,7 +44,7 @@
             <div class="classynav">
               <ul>
                 <li>
-                  <a href="#">Shop</a>
+                  <a href="{% url 'products:index' %}">Products</a>
                   <div class="megamenu">
                     <ul class="single-mega cn-col-4">
                       <li class="title">Women's Collection</li>
@@ -204,7 +204,7 @@
               <!-- Footer Menu -->
               <div class="footer_menu">
                 <ul>
-                  <li><a href="shop.html">Shop</a></li>
+                  <li><a href="{% url 'products:index' %}">Products</a></li>
                   <li><a href="{% url 'blog:index' %}">Blog</a></li>
                   <li><a href="{% url 'contacts:contact' %}">Contact</a></li>
                 </ul>
