@@ -7,3 +7,7 @@ def index(request):
 
 def detail(request):
     return render(request, 'products/product_detail.html')
+
+
+def category(request):
+    return render(request, 'products/products-by-category.html')
