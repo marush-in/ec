@@ -9,7 +9,7 @@ from .models import (
     Legal,
     Faq_content
 )
-from products.models import Brand, Category
+from products.models import Brand, Category, PopularProduct, Product
 
 
 class IndevView(TemplateView):
@@ -19,7 +19,15 @@ class IndevView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['brand_logos'] = Brand.objects.order_by('-created_at')[:6]
         context['categories'] = Category.objects.order_by('-created_at')[:6]
+        context['popular_products'] = self.get_popular_products()
         return context
+
+    def get_popular_products(self):
+        popular_products = PopularProduct.objects.order_by('-created_at')[:8]
+        convert_posts = []
+        for popular_product in popular_products:
+            convert_posts.append(Product.objects.filter(name=popular_product))
+        return convert_posts
 
 
 class GuideView(TemplateView):

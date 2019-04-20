@@ -69,3 +69,18 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class PopularProduct(models.Model):
+    product = models.ForeignKey(
+        Product, verbose_name='商品', on_delete=models.PROTECT
+    )
+    created_at = models.DateTimeField(verbose_name='選択日時', auto_now_add=True)
+    updated_at = models.DateTimeField(verbose_name='更新日時', auto_now=True)
+
+    class Meta:
+        verbose_name = '人気商品'
+        verbose_name_plural = '人気商品'
+
+    def __str__(self):
+        return self.product.name
