@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_summernote',
     'contacts.apps.ContactsConfig',
+    'accounts.apps.AccountsConfig',
     'blog.apps.BlogConfig',
     'products.apps.ProductsConfig',
     'search.apps.SearchConfig',
