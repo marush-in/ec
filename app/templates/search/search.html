@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}{% endblock %}
+{% block description %}{% endblock %}
+{% block og_title %}{% endblock %}
+{% block og_description %}{% endblock %}
+{% block ogp_type %}website{% endblock %}
+{% block og_url %}{% endblock %}
+{% block og_image %}{% endblock %}
+{% block tw_description %}{% endblock %}
+{% block tw_image %}{% endblock %}
+
+{% block content %}
+  {% load static %}
+  <div class="breadcumb_area bg-img" style="background-image: url({% static 'img/bg-img/breadcumb.jpg' %});">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12">
+          <div class="page-title text-center">
+            <h2>"{{ query }}"の検索結果</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="shop_grid_area section-padding-80">
+    <div class="container">
+      <div class="row">
+        {% include 'includes/products/sidebar.html' %}
+        <div class="col-12 col-md-8 col-lg-9">
+          <div class="shop_grid_product_area">
+            <div class="row">
+              <div class="col-12">
+                <div class="product-topbar d-flex align-items-center justify-content-between">
+                  <div class="total-products">
+                    <p><span>{{ count }}</span> products found</p>
+                  </div>
+                  <div class="product-sorting d-flex">
+                    <p>Sort by:</p>
+                    <form action="#" method="get">
+                      <select name="select" id="sortByselect">
+                        <option value="value">Highest Rated</option>
+                        <option value="value">Newest</option>
+                        <option value="value">Price: $$ - $</option>
+                        <option value="value">Price: $ - $$</option>
+                      </select>
+                      <input type="submit" class="d-none" value="">
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              {% for product in products %}
+                <div class="col-12 col-sm-6 col-lg-4">
+                  <div class="single-product-wrapper">
+                    <div class="product-img">
+                      <img src="{{ product.image.url }}" alt="">
+                      <img class="hover-img" src="{{ product.image.url }}" alt="">
+                      <div class="product-favourite">
+                        <a href="" class="favme fa fa-heart"></a>
+                      </div>
+                    </div>
+                    <div class="product-description">
+                      <span>{{ product.category }}</span>
+                      <a href="{% url 'products:detail' product.slug %}">
+                        <h6>{{ product.name }}</h6>
+                      </a>
+                      <p class="product-price">¥{{ product.price }}</p>
+                      <div class="hover-content">
+                        <div class="add-to-cart-btn">
+                          <a href="" class="btn essence-btn">Add to Cart</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

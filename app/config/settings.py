@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'contacts.apps.ContactsConfig',
     'blog.apps.BlogConfig',
     'products.apps.ProductsConfig',
+    'search.apps.SearchConfig',
     'shop.apps.ShopConfig',
 ]
 
