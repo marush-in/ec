@@ -4,6 +4,14 @@ from django.db import models
 class Settings(models.Model):
     site_name = models.CharField(verbose_name='サイト名', max_length=160)
     site_description = models.TextField(verbose_name='サイトの説明', max_length=240)
+    mail_from_address = models.EmailField(
+        verbose_name='メール送信元',
+        max_length=254,
+        default='fromexample@marushin.mn'
+    )
+    mail_to_address = models.EmailField(
+        verbose_name='メール送信先', max_length=254, default='toexample@marushin.mn'
+    )
     ogp_iamge = models.ImageField(
         verbose_name='OGP画像', upload_to='uploads/', max_length=320, blank=True
     )
