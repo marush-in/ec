@@ -16,7 +16,6 @@ class ContactView(CreateView):
     def form_valid(self, form):
         settings = Settings.objects.first()
         data = form.cleaned_data
-        print(data)
         send_mail(
             subject='お問い合わせいただきありがとうございます',
             message=render_to_string('mails/contacts/mail_body.txt', {
