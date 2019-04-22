@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.urls import reverse
@@ -12,6 +13,12 @@ class ContactView(CreateView):
     template_name = 'contacts/contact.html'
     form_class = ContactForm
     model = Contact
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['recaptacha_public_key'] = settings.RECAPTCHA_PUBLIC_KEY
+        print(settings.RECAPTCHA_PUBLIC_KEY)
+        return context
 
     def form_valid(self, form):
         settings = Settings.objects.first()
