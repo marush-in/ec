@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+{% block description %}{% endblock %}
+{% block og_title %}{% endblock %}
+{% block og_description %}{% endblock %}
+{% block ogp_type %}website{% endblock %}
+{% block og_url %}{% endblock %}
+{% block og_image %}{% endblock %}
+{% block tw_description %}{{% endblock %}
+{% block tw_image %}{% endblock %}
+
+{% block content %}
+  <div class="container mb-5 padding-top">
+    <div class="row">
+      <div class="col-lg-4">
+        <ul class="list-group">
+          <li class="list-group-item"><a href="/admin">Home</a></li>
+          <li class="list-group-item"><a href="#">ユーザー情報を変更する</a></li>
+          <li class="list-group-item"><a href="#">配送情報の登録、変更をする</a></li>
+          <li class="list-group-item"><a href="#">注文履歴を確認する</a></li>
+          <li class="list-group-item"><a href="#">いいねをした商品を確認する</a></li>
+          <li class="list-group-item"><a href="#">アカウント削除する</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-8">
+        <div class="card card-info">
+          <div class="card-header text-center text-white bg-primary">
+            テキストサンプル
+          </div>
+          <div class="card-body">
+            テキストサンプル
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
