@@ -1,3 +1,5 @@
+import requests
+
 from django.conf import settings
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
@@ -17,24 +19,33 @@ class ContactView(CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['recaptacha_public_key'] = settings.RECAPTCHA_PUBLIC_KEY
-        print(settings.RECAPTCHA_PUBLIC_KEY)
         return context
 
     def form_valid(self, form):
-        settings = Settings.objects.first()
+        settings_first = Settings.objects.first()
         data = form.cleaned_data
-        send_mail(
-            subject='お問い合わせいただきありがとうございます',
-            message=render_to_string('mails/contacts/mail_body.txt', {
-                'data': data,
-            }),
-            from_email=settings.mail_from_address,
-            recipient_list=[
-                form.cleaned_data['email'],
-                settings.mail_to_address
-            ],
-            fail_silently=False,
-        )
+        captcha = self.request.POST.get("g-recaptcha-response")
+        if captcha:
+            auth_url = 'https://www.google.com/recaptcha/api/siteverify?secret={}&response={}'
+            auth_url = auth_url.format(settings.RECAPTCHA_SECRET_KEY, captcha)
+            response = requests.get(auth_url)
+            if response.json().get('success'):
+                send_mail(
+                    subject='お問い合わせいただきありがとうございます',
+                    message=render_to_string('mails/contacts/mail_body.txt', {
+                        'data': data,
+                    }),
+                    from_email=settings_first.mail_from_address,
+                    recipient_list=[
+                        form.cleaned_data['email'],
+                        settings_first.mail_to_address
+                    ],
+                    fail_silently=False,
+                )
+        else:
+            form.add_error(None, 'ロボットではないチェックを入れてください')
+            return self.form_invalid(form)
+
         return super().form_valid(form)
 
     def get_success_url(self):

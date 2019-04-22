@@ -63,6 +63,9 @@
           </label>
           <textarea name="content" cols="30" rows="10" class="form-control"></textarea>
         </div>
+        {% if form.non_field_errors %}
+        　　<div class="mb-3"><span class="text-danger">{{ form.non_field_errors }}</span></div>
+        {% endif %}
         <script src='https://www.google.com/recaptcha/api.js'></script>
         <div class="g-recaptcha" data-sitekey="{{ recaptacha_public_key }}"></div>
         <button type="submit" class="btn btn-primary mt-5">送信する</button>
