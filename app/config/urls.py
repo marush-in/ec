@@ -12,10 +12,10 @@ urlpatterns = [
     path('', include('accounts.urls')),
     path('', include('shop.urls')),
     path('', include('contacts.urls')),
-    path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
     path('products/', include('products.urls')),
     path('search/', include('search.urls')),
+    path(settings.ADMIN_URL + '/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
 ]
 

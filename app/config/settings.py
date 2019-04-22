@@ -11,7 +11,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = ')pw7w4%+ef*v$&z&iiiql#ss*evhn11bl2vp5un*omp64tiax#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'false') == 'true'
 
 ALLOWED_HOSTS = []
 
@@ -123,27 +123,21 @@ MEDIA_ROOT = '/var/www/media'
 
 
 # Admin Site
-# ADMIN_URL =
+ADMIN_URL = os.environ['ADMIN_URL']
 ADMIN_SITE_TITLE = 'ECサイト管理画面'
 ADMIN_SITE_HEADER = 'ECサイト管理画面'
 ADMIN_INDEX_TITLE = 'メニュー'
 
 
-# Email Settings Envで管理する
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = os.environ['EMAIL_HOST']
-# EMAIL_PORT = os.environ['EMAIL_PORT']
-# EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
-# EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
-# EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', 'false') == 'true'
+# Email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'ec-mail'
-EMAIL_PORT = 1025
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_USE_TLS = False
+EMAIL_HOST = os.environ['EMAIL_HOST']
+EMAIL_PORT = os.environ['EMAIL_PORT']
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
+EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', 'false') == 'true'
 
 
 # reCAPTCHA
-# RECAPTCHA_PUBLIC_KEY = os.environ['RECAPTCHA_PUBLIC_KEY']
-# RECAPTCHA_SECRET_KEY = os.environ['RECAPTCHA_SECRET_KEY']
+RECAPTCHA_PUBLIC_KEY = os.environ['RECAPTCHA_PUBLIC_KEY']
+RECAPTCHA_SECRET_KEY = os.environ['RECAPTCHA_SECRET_KEY']

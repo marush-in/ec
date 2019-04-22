@@ -20,11 +20,26 @@ services:
       - static:/var/www/static
       - media:/var/www/media
     environment:
+      DEBUG: '${DEBUG}'
+      PYTHONDONTWRITEBYTECODE: 1
+      # Database
       DATABASE_HOST:     ec-postgres
       DATABASE_NAME:     ${DATABASE_NAME}
       DATABASE_USER:     ${DATABASE_USER}
       DATABASE_PASSWORD: ${DATABASE_PASSWORD}
       DATABASE_PORT:     ${DATABASE_PORT}
+      # SMTP
+      EMAIL_HOST:          ${EMAIL_HOST}
+      EMAIL_PORT:          ${EMAIL_PORT}
+      EMAIL_HOST_USER:     ${EMAIL_HOST_USER}
+      EMAIL_HOST_PASSWORD: ${EMAIL_HOST_PASSWORD}
+      EMAIL_USE_TLS:       ${EMAIL_USE_TLS}
+      # Other
+      ADMIN_URL:            ${ADMIN_URL}
+      RECAPTCHA_PUBLIC_KEY: ${ADRECAPTCHA_PUBLIC_KEYMIN_URL}
+      RECAPTCHA_SECRET_KEY: ${RECAPTCHA_SECRET_KEY}
+
+
     depends_on:
       - ec-postgres
     restart: always
