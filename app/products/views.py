@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, DetailView
-from .models import Product, Category
+from .models import Product, Category, Brand
 
 
 class ProductListView(ListView):
@@ -44,4 +44,31 @@ class ProductListByCategoryView(ListView):
         category = get_object_or_404(Category, slug=self.kwargs['slug'])
         return Product.objects.filter(
             category=category, is_published=True
+        ).count()
+
+
+class ProductListByBrandView(ListView):
+    model = Product
+    context_object_name = 'products'
+    template_name = 'products/products-by-brand.html'
+
+    def get_queryset(self):
+        brand = get_object_or_404(Brand, slug=self.kwargs['slug'])
+        queryset = Product.objects.filter(
+            brand=brand, is_published=True
+        ).order_by('-created_at')
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['category'] = get_object_or_404(
+            Brand, slug=self.kwargs['slug']
+        )
+        context['brand_count'] = self.get_products_brand_count()
+        return context
+
+    def get_products_brand_count(self):
+        brand = get_object_or_404(Brand, slug=self.kwargs['slug'])
+        return Product.objects.filter(
+            brand=brand, is_published=True
         ).count()
