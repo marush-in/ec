@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'contacts.apps.ContactsConfig',
     'accounts.apps.AccountsConfig',
     'blog.apps.BlogConfig',
+    # 'mailmagazine.apps.MailmagazineConfig',
     'products.apps.ProductsConfig',
     'search.apps.SearchConfig',
     'shop.apps.ShopConfig',

@@ -49,6 +49,7 @@ class ProductListByCategoryView(ListView):
 
 class ProductListByBrandView(ListView):
     model = Product
+    paginate_by = 12
     context_object_name = 'products'
     template_name = 'products/products-by-brand.html'
 
