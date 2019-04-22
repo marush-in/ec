@@ -1,3 +1,8 @@
 .form-center {
     margin: 0 auto;
 }
+
+.category-btn {
+    font-size: 16px;
+    text-decoration: underline;
+}
