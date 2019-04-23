@@ -15,3 +15,7 @@ def mypage(request):
 
 def confirmOrderHistory(request):
     return render(request, 'accounts/confirm_order_history.html')
+
+
+def changeDeliveryInfo(request):
+    return render(request, 'accounts/change_delivery_info.html')

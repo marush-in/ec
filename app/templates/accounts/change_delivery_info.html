@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+{% block description %}{% endblock %}
+{% block og_title %}{% endblock %}
+{% block og_description %}{% endblock %}
+{% block ogp_type %}website{% endblock %}
+{% block og_url %}{% endblock %}
+{% block og_image %}{% endblock %}
+{% block tw_description %}{{% endblock %}
+{% block tw_image %}{% endblock %}
+
+{% block content %}
+  <div class="container mb-5 padding-top">
+    <div class="row">
+      {% include 'includes/accounts/sidebar.html' %}
+      <div class="col-lg-8">
+        <div class="card card-info">
+          <div class="card-header text-center text-white bg-primary">
+            配送先設定
+          </div>
+          <div class="card-body">
+            <form action="POST">
+              {% csrf_token %}
+              <div class="form-group">
+                <label>氏名</label>
+                <input type="text" name="name" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>都道府県</label>
+                <input type="text" name="pref" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>郵便番号</label>
+                <input type="text" name="zip" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>住所</label>
+                <input type="text" name="address" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>会社名：（オプション）</label>
+                <input type="text" name="company_name" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>電話番号</label>
+                <input type="text" name="tel" class="form-control">
+              </div>
+              <button type="submit" class="btn btn-primary mt-5">変更する</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
