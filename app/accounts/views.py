@@ -19,3 +19,7 @@ def confirmOrderHistory(request):
 
 def changeDeliveryInfo(request):
     return render(request, 'accounts/change_delivery_info.html')
+
+
+def changeUserInfo(request):
+    return render(request, 'accounts/change_user_info.html')
