@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+{% block description %}{% endblock %}
+{% block og_title %}{% endblock %}
+{% block og_description %}{% endblock %}
+{% block ogp_type %}website{% endblock %}
+{% block og_url %}{% endblock %}
+{% block og_image %}{% endblock %}
+{% block tw_description %}{{% endblock %}
+{% block tw_image %}{% endblock %}
+
+{% block content %}
+  {% load static %}
+  <div class="single-blog-wrapper">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8">
+          <div class="regular-page-content-wrapper section-padding-80">
+            <div class="regular-page-text">
+              <h2>
+                ご利用ありがとうございます。以下のメールアドレスを仮登録しました。
+              </h2>
+              <p>xxxxxxxx@xxxxx.xx.xx</p>
+              <p>
+                上記アドレス宛に登録完了用のURLをお送りしておりますのでご確認ください。<br/>
+                ※ご注意<br/>
+                現在は、仮登録となっておりますのでメルマガ受信を希望される方は、必ず本登録処理を行ってください。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
