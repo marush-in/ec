@@ -36,3 +36,18 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class PopularPost(models.Model):
+    post = models.ForeignKey(
+        Post, verbose_name='記事', on_delete=models.PROTECT
+    )
+    created_at = models.DateTimeField(verbose_name='選択日時', auto_now_add=True)
+    updated_at = models.DateTimeField(verbose_name='更新日時', auto_now=True)
+
+    class Meta:
+        verbose_name = '人気記事'
+        verbose_name_plural = '人気記事'
+
+    def __str__(self):
+        return self.post.title

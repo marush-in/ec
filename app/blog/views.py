@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, DetailView
 
-from .models import Post, Category
+from .models import Post, Category, PopularPost
 
 
 class PostListView(ListView):
@@ -13,6 +13,14 @@ class PostListView(ListView):
 
 class PostDetailView(DetailView):
     model = Post
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['popular_posts'] = self.get_popular_posts()
+        return context
+
+    def get_popular_posts(self):
+        return Post.objects.all()
 
 
 class PostListByCategoryView(ListView):

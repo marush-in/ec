@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.db import models
 from django.forms import TextInput, Textarea
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Post, Category
+from .models import Post, Category, PopularPost
 
 
 class PostAdmin(SummernoteModelAdmin):
@@ -26,3 +26,4 @@ class CategoryAdmin(admin.ModelAdmin):
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(PopularPost)
