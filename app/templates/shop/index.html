@@ -29,13 +29,13 @@
       <div class="container">
           <div class="row justify-content-center">
             {% for category in categories %}
-            <div class="col-12 col-sm-6 col-md-4">
-              <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url({{ category.image.url }});">
-                <div class="catagory-content">
-                  <a href="{% url 'products:products-category' category.slug %}">{{ category.name }}</a>
+              <div class="col-12 col-sm-6 col-md-4">
+                <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url({{ category.image.url }});">
+                  <div class="catagory-content">
+                    <a href="{% url 'products:products-category' category.slug %}">{{ category.name }}</a>
+                  </div>
                 </div>
               </div>
-            </div>
             {% endfor %}
           </div>
       </div>

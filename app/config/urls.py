@@ -14,6 +14,7 @@ urlpatterns = [
     path('', include('contacts.urls')),
     path('blog/', include('blog.urls')),
     # path('mailmagazine/', include('mailmagazine.urls')),
+    path('orders/', include('orders.urls')),
     path('products/', include('products.urls')),
     path('search/', include('search.urls')),
     path(settings.ADMIN_URL + '/', admin.site.urls),

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+{% block description %}{% endblock %}
+{% block og_title %}{% endblock %}
+{% block og_description %}{% endblock %}
+{% block ogp_type %}website{% endblock %}
+{% block og_url %}{% endblock %}
+{% block og_image %}{% endblock %}
+{% block tw_description %}{{% endblock %}
+{% block tw_image %}{% endblock %}
+
+{% block content %}
+  {% load static %}
+  <div class="single-blog-wrapper">
+    <div class="single-blog-post-thumb">
+      <img src="{% static 'img/bg-img/bg-7.jpg' %}" alt="">
+    </div>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8">
+          <div class="regular-page-content-wrapper section-padding-80">
+            <div class="regular-page-text">
+              <h2>ご購入頂きありがとうございます。</h2>
+              <p>Order ID: 100000</p>
+              <p>
+              　ご登録のメールアドレスにご注文の確認メールをお送りいたしました。<br/>
+                お問い合わせの際などに必要になりますので、お控えください。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

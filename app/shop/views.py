@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.views.generic import TemplateView
 
 from .models import (
@@ -23,11 +24,14 @@ class IndevView(TemplateView):
         return context
 
     def get_popular_products(self):
-        popular_products = PopularProduct.objects.order_by('-created_at')[:8]
-        convert_posts = []
-        for popular_product in popular_products:
-            convert_posts.append(Product.objects.filter(name=popular_product))
-        return convert_posts
+        return Product.objects.all()
+        # popular_products = PopularProduct.objects.order_by('-created_at')[:8]
+        # for num in range(popular_products.count()):
+        #     if num == 0:
+        #         queryset = 'Q(name=popular_products[' + str(num) + '])'
+        #     else:
+        #         queryset += ' | Q(name=popular_products[' + str(num) + '])'
+        # return Product.objects.filter(queryset)
 
 
 class GuideView(TemplateView):
