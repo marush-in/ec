@@ -23,3 +23,7 @@ def changeDeliveryInfo(request):
 
 def changeUserInfo(request):
     return render(request, 'accounts/change_user_info.html')
+
+
+def confirmDeleteUser(request):
+    return render(request, 'accounts/confirm_delete_user.html')
