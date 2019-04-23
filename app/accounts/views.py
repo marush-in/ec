@@ -11,3 +11,7 @@ def register(request):
 
 def mypage(request):
     return render(request, 'accounts/mypage.html')
+
+
+def confirmOrderHistory(request):
+    return render(request, 'accounts/confirm_order_history.html')
