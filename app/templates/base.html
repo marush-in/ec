@@ -76,16 +76,13 @@
                   </div>
                 </li>
                 <li>
-                  <a href="#">Pages</a>
+                  <a href="{% url 'blog:index' %}">Blog</a>
                   <ul class="dropdown">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="checkout.html">Checkout</a></li>
-                    <li><a href="{% url 'blog:index' %}">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    {% for category in categories %}
+                      <li><a href="{% url 'blog:posts-category' category.slug %}">{{ category.name }}</a></li>
+                    {% endfor %}
                   </ul>
                 </li>
-                <li><a href="{% url 'blog:index' %}">Blog</a></li>
                 <li><a href="{% url 'contacts:contact' %}">Contact</a></li>
               </ul>
             </div>
