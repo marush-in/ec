@@ -11,7 +11,6 @@ install:
 before_script: 
   - pip install docker-compose
   - cp .env.sample .env
-  - docker-compose up -d
 
 script:
 　- docker-compose run ec-app ./manage.py test && flake8"
