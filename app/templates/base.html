@@ -11,7 +11,7 @@
     <meta property="og:type" content="{% block ogp_type %}{% endblock %}" />
     <meta property="og:url" content="{{ request.build_absolute_uri }}" />
     <meta property="og:image" content="{% block og_image %}{% endblock %}" />
-    <meta property="og:site_name" content="" />
+    <meta property="og:site_name" content="{{ settings.site_name }}" />
     <meta property="og:locale" content="ja_JP" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="" />
