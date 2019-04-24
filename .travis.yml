@@ -9,7 +9,7 @@ install:
   - pip install -r requirements.txt
 
 before_script: 
-  - cp .env.example .env
+  - cp .env.sample .env
   - docker-compose up -d
 
 script:
