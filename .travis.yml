@@ -13,7 +13,8 @@ before_script:
   - cp .env.sample .env
 
 script:
-　- docker-compose run ec-app ./manage.py test && flake8"
+  - docker-compose run ec-app ./manage.py test
+  - docker-compose run ec-app flake8
 
 notifications:
   email:
