@@ -31,6 +31,9 @@ class Settings(models.Model):
         verbose_name='Youtube', max_length=240, blank=True
     )
     line = models.CharField(verbose_name='Line', max_length=240, blank=True)
+    is_public = models.BooleanField(
+        verbose_name='検索エンジンに登録する', default=True
+    )
     created_at = models.DateTimeField(verbose_name='作成日時', auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='更新日時', auto_now=True)
 
