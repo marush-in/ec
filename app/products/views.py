@@ -5,13 +5,15 @@ from .models import Product, Category, Brand
 
 class ProductListView(ListView):
     model = Product
-    queryset = Product.objects.filter(is_published=True).order_by('-created_at')
+    queryset = Product.objects.filter(
+        is_published=True).order_by('-created_at')
     paginate_by = 12
     context_object_name = 'products'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['product_count'] = Product.objects.filter(is_published=True).count()
+        context['product_count'] = Product.objects.filter(
+            is_published=True).count()
         return context
 
 

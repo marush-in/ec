@@ -1,4 +1,4 @@
-from django.db.models import Q
+# from django.db.models import Q
 from django.views.generic import TemplateView
 
 from .models import (
@@ -10,7 +10,7 @@ from .models import (
     Legal,
     Faq_content
 )
-from products.models import Brand, Category, PopularProduct, Product
+from products.models import Brand, Category, Product
 
 
 class IndevView(TemplateView):

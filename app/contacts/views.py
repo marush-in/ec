@@ -26,7 +26,8 @@ class ContactView(CreateView):
         data = form.cleaned_data
         captcha = self.request.POST.get("g-recaptcha-response")
         if captcha:
-            auth_url = 'https://www.google.com/recaptcha/api/siteverify?secret={}&response={}'
+            auth_url = 'https://www.google.com/recaptcha/api/'\
+                        'siteverify?secret={}&response={}'
             auth_url = auth_url.format(settings.RECAPTCHA_SECRET_KEY, captcha)
             response = requests.get(auth_url)
             if response.json().get('success'):
