@@ -1,0 +1,20 @@
+language: python
+python:
+  - "3.7"
+
+services:
+  - docker
+
+install:
+  - pip install -r requirements.txt
+
+before_script: 
+  - cp .env.example .env
+  - docker-compose up -d
+
+script:
+　- docker-compose run ec-app ./manage.py test && flake8"
+
+notifications:
+  email:
+    - shin.marumoto@gmail.com
