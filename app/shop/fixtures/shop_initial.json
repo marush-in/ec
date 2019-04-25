@@ -1,0 +1,95 @@
+[
+    {
+        "model": "shop.settings",
+        "pk": 1,
+        "fields": {
+            "site_name": "MarushinのECサイト",
+            "site_description": "MarushinのECサイトになります",
+            "mail_from_address": "info@marushin.mn",
+            "mail_to_address": "info@marushin.mn",
+            "instagram": "https://www.instagram.com",
+            "facebook": "https://www.facebook.com",
+            "twitter": "https://twitter.com",
+            "youtube": "https://www.youtube.com",
+            "line": "http://line.me",
+            "created_at": "2019-01-10 00:00:00",
+            "updated_at": "2019-01-10 00:00:00"
+        }
+    },
+    {
+        "model": "shop.guide",
+        "pk": 1,
+        "fields": {
+            "title": "ご利用ガイド",
+            "description": "ご利用ガイドページになります",
+            "content": "<h2>ご利用ガイド</h2>",
+            "created_at": "2019-01-10 00:00:00",
+            "updated_at": "2019-01-10 00:00:00"
+        }
+    },
+    {
+        "model": "shop.privacy_policy",
+        "pk": 1,
+        "fields": {
+            "title": "プライバシーポリシー",
+            "description": "プライバシーポリシーになります。",
+            "content": "<h2>プライバシーポリシー</h2>",
+            "created_at": "2019-01-10 00:00:00",
+            "updated_at": "2019-01-10 00:00:00"
+        }
+    },
+    {
+        "model": "shop.company",
+        "pk": 1,
+        "fields": {
+            "title": "運営会社",
+            "description": "運営会社ページになります。",
+            "content": "<h2>運営会社</h2>",
+            "created_at": "2019-01-10 00:00:00",
+            "updated_at": "2019-01-10 00:00:00"
+        }
+    },
+    {
+        "model": "shop.terms_of_use",
+        "pk": 1,
+        "fields": {
+            "title": "ご利用規約",
+            "description": "ご利用規約のページなります。",
+            "content": "<h2>ご利用規約</h2>",
+            "created_at": "2019-01-10 00:00:00",
+            "updated_at": "2019-01-10 00:00:00"
+        }
+    },
+    {
+        "model": "shop.faq",
+        "pk": 1,
+        "fields": {
+            "title": "よくあるお問い合わせ",
+            "description": "よくあるお問い合わせのページなります。",
+            "content": "<h2>よくあるお問い合わせ</h2>",
+            "created_at": "2019-01-10 00:00:00",
+            "updated_at": "2019-01-10 00:00:00"
+        }
+    },
+    {
+        "model": "shop.legal",
+        "pk": 1,
+        "fields": {
+            "title": "特定商取引法に基づく表記",
+            "description": "特定商取引法に基づく表記のページなります。",
+            "content": "<h2>特定商取引法に基づく表記</h2>",
+            "created_at": "2019-01-10 00:00:00",
+            "updated_at": "2019-01-10 00:00:00"
+        }
+    },
+    {
+        "model": "shop.faq_content",
+        "pk": 1,
+        "fields": {
+            "question": "配送料は何円になりますか？",
+            "answer": "500円になります",
+            "created_at": "2019-01-10 00:00:00",
+            "updated_at": "2019-01-10 00:00:00"
+        }
+    }
+]
