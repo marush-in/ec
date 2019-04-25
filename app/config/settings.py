@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_summernote',
+    # 'storages',
     'contacts.apps.ContactsConfig',
     'accounts.apps.AccountsConfig',
     'blog.apps.BlogConfig',
@@ -148,3 +149,16 @@ RECAPTCHA_SECRET_KEY = os.environ['RECAPTCHA_SECRET_KEY']
 # Stripe
 STRIPE_PUBLISHABLE_KEY = os.environ['STRIPE_PUBLISHABLE_KEY']
 STRIPE_SECRET_KEY = os.environ['STRIPE_SECRET_KEY']
+
+
+# AWS S3
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+# AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+# AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+# AWS_S3_REGION_NAME = os.environ.get('AWS_DEFAULT_REGION', 'ap-northeast-1')
+# AWS_AUTO_CREATE_BUCKET = True
+# AWS_DEFAULT_ACL = None
+
+
+# Authentication
