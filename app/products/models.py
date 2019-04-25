@@ -85,6 +85,13 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+    @property
+    def product_image(self):
+        return mark_safe(
+            '<image src="%s"style="width:100px;height:auto;"/>'
+            % self.image.url
+        )
+
 
 class PopularProduct(models.Model):
     product = models.ForeignKey(

@@ -18,7 +18,8 @@ class BrandAdmin(admin.ModelAdmin):
 class ProductAdmin(SummernoteModelAdmin):
     summernote_fields = ('description',)
     list_display = (
-        'id', 'name', 'slug', 'category', 'brand', 'is_published',
+        'id', 'name', 'slug', 'category',
+        'brand', 'product_image', 'is_published',
     )
     list_display_links = ['name']
     list_editable = ['is_published']
