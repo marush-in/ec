@@ -24,7 +24,7 @@ class Category(models.Model):
     @property
     def category_image(self):
         return mark_safe(
-            '<image src="%s"style="width:100px;height:auto;"/>'
+            '<image src="%s" style="width:100px;height:auto;"/>'
             % self.image.url
         )
 
@@ -48,7 +48,7 @@ class Brand(models.Model):
     @property
     def brand_image(self):
         return mark_safe(
-            '<image src="%s"style="width:100px;height:auto;"/>'
+            '<image src="%s" style="width:100px;height:auto;"/>'
             % self.logo.url
         )
 
@@ -88,7 +88,7 @@ class Product(models.Model):
     @property
     def product_image(self):
         return mark_safe(
-            '<image src="%s"style="width:100px;height:auto;"/>'
+            '<image src="%s" style="width:100px;height:auto;"/>'
             % self.image.url
         )
 

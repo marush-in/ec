@@ -41,7 +41,7 @@ class Post(models.Model):
     @property
     def post_eyecatch(self):
         return mark_safe(
-            '<image src="%s"style="width:100px;height:auto;"/>'
+            '<image src="%s" style="width:100px;height:auto;"/>'
             % self.eyecatch.url
         )
 
