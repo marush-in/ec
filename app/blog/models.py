@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.safestring import mark_safe
 
 
 class Category(models.Model):
@@ -36,6 +37,13 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def admin_eyecatch(self):
+        return mark_safe(
+            '<image src="%s"style="width:100px;height:auto;"/>'
+            % self.eyecatch.url
+        )
 
 
 class PopularPost(models.Model):
