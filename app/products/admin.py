@@ -6,12 +6,12 @@ from .models import Category, Brand, Product, PopularProduct
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'slug', 'created_at', 'updated_at')
+    list_display = ('id', 'name', 'slug', 'category_image',)
     list_editable = ['name', 'slug']
 
 
 class BrandAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'slug', 'created_at', 'updated_at')
+    list_display = ('id', 'name', 'slug', 'brand_image')
     list_editable = ['name', 'slug']
 
 

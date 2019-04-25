@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.safestring import mark_safe
 
 
 class Category(models.Model):
@@ -20,6 +21,13 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+    @property
+    def category_image(self):
+        return mark_safe(
+            '<image src="%s"style="width:100px;height:auto;"/>'
+            % self.image.url
+        )
+
 
 class Brand(models.Model):
     name = models.CharField(verbose_name='名前', max_length=250, unique=True)
@@ -36,6 +44,13 @@ class Brand(models.Model):
 
     def __str__(self):
         return self.name
+
+    @property
+    def brand_image(self):
+        return mark_safe(
+            '<image src="%s"style="width:100px;height:auto;"/>'
+            % self.logo.url
+        )
 
 
 class Product(models.Model):

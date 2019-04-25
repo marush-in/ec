@@ -39,7 +39,7 @@ class Post(models.Model):
         return self.title
 
     @property
-    def admin_eyecatch(self):
+    def post_eyecatch(self):
         return mark_safe(
             '<image src="%s"style="width:100px;height:auto;"/>'
             % self.eyecatch.url
