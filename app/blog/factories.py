@@ -19,7 +19,7 @@ class PostFactory(DjangoModelFactory):
     description = Faker('sentence')
     slug = FuzzyText(length=15)
     category = factory.Iterator(Category.objects.all())
-    eyecatch = eyecatch = factory.django.ImageField(
+    eyecatch = factory.django.ImageField(
         color='blue',
         height=290,
         width=540,
