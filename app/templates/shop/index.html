@@ -6,6 +6,7 @@
 {% block og_description %}{% if settings.site_description %}{{ settings.site_description }}{% endif %}{% endblock %}
 {% block ogp_type %}website{% endblock %}
 {% block og_image %}{% if settings.ogp_iamge %}{{ request.build_absolute_uri }}media/{{ settings.ogp_iamge }}{% endif %}{% endblock %}
+{% block tw_title %}{% if settings.site_name %}{{ settings.site_name }}{% endif %}{% endblock %}
 {% block tw_description %}{% if settings.site_description %}{{ settings.site_description }}{% endif %}{% endblock %}
 {% block tw_image %}{% if settings.ogp_iamge %}{{ request.build_absolute_uri }}media/{{ settings.ogp_iamge }}{% endif %}{% endblock %}
 
