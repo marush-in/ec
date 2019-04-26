@@ -7,6 +7,8 @@ django-storages==1.7.1
 django-summernote==0.8.11.4
 docutils==0.14
 entrypoints==0.3
+factory-boy==2.11.1
+Faker==1.0.5
 flake8==3.7.7
 gunicorn==19.9.0
 idna==2.8
@@ -21,4 +23,5 @@ pytz==2018.9
 requests==2.21.0
 s3transfer==0.2.0
 six==1.12.0
+text-unidecode==1.2
 urllib3==1.24.2
