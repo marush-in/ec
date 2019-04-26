@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 
-{% block title %}{% endblock %}
-{% block description %}{% endblock %}
-{% block og_title %}{% endblock %}
-{% block og_description %}{% endblock %}
+{% block title %}{{ brand.name }}の商品一覧{% endblock %}
+{% block description %}{{ brand.name }}の商品一覧ページになります。{% endblock %}
+{% block og_title %}{{ brand.name }}の商品一覧{% endblock %}
+{% block og_description %}{{ brand.name }}の商品一覧ページになります。{% endblock %}
 {% block ogp_type %}website{% endblock %}
 {% block og_image %}{% endblock %}
-{% block tw_description %}{% endblock %}
+{% block tw_title %}{{ brand.name }}の商品一覧{% endblock %}
+{% block tw_description %}{{ brand.name }}の商品一覧ページになります。{% endblock %}
 {% block tw_image %}{% endblock %}
 
 {% block content %}
