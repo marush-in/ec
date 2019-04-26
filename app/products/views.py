@@ -64,7 +64,7 @@ class ProductListByBrandView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['category'] = get_object_or_404(
+        context['brand'] = get_object_or_404(
             Brand, slug=self.kwargs['slug']
         )
         context['brand_count'] = self.get_products_brand_count()
