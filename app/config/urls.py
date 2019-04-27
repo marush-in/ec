@@ -9,7 +9,7 @@ admin.site.index_title = settings.ADMIN_INDEX_TITLE
 
 
 urlpatterns = [
-    path('accounts/', include('accounts.urls')),
+    path('account/', include('accounts.urls')),
     path('account/', include('allauth.urls')),
     path('', include('shop.urls')),
     path('', include('contacts.urls')),

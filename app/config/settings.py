@@ -176,5 +176,7 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_EMAIL_REQUIRED = True
 
-LOGIN_REDIRECT_URL = '/accounts/mypage/'
+LOGIN_REDIRECT_URL = '/account/mypage/'
 ACCOUNT_LOGOUT_REDIRECT_URL = '/account/login/'
+
+LOGIN_URL = '/account/login/'
