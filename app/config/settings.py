@@ -25,6 +25,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'django_summernote',
     # 'storages',
     'contacts.apps.ContactsConfig',
@@ -161,4 +165,7 @@ STRIPE_SECRET_KEY = os.environ['STRIPE_SECRET_KEY']
 # AWS_DEFAULT_ACL = None
 
 
-# Authentication
+# Authentication ＆ django-allauth
+SITE_ID = 1
+LOGIN_REDIRECT_URL = 'accounts:mypage'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'shop:index'
