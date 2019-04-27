@@ -169,12 +169,12 @@ STRIPE_SECRET_KEY = os.environ['STRIPE_SECRET_KEY']
 SITE_ID = 1
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-    'django.account.auth.backends.AuthenticationBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 )
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_EMAIL_REQUIRED = True
 
-LOGIN_REDIRECT_URL = 'accounts:mypage'
-ACCOUNT_LOGOUT_REDIRECT_URL = 'shop:index'
+LOGIN_REDIRECT_URL = '/accounts/mypage/'
+ACCOUNT_LOGOUT_REDIRECT_URL = '/account/login/'

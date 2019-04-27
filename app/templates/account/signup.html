@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}{% endblock %}
+{% block description %}{% endblock %}
+{% block og_title %}{% endblock %}
+{% block og_description %}{% endblock %}
+{% block ogp_type %}website{% endblock %}
+{% block og_image %}{% endblock %}
+{% block tw_title %}{{% endblock %}
+{% block tw_description %}{{% endblock %}
+{% block tw_image %}{% endblock %}
+
+{% load i18n %}
+
+{% block content %}
+<div class="contact-area form-center" >
+  <div class="contact-info form-center">
+    <h2>{% trans "Sign Up" %}</h2>
+    <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+    <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
+      <button type="submit" class="btn btn-primary mt-5">登録する</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

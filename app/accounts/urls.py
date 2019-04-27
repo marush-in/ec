@@ -1,7 +1,5 @@
 from django.urls import path
 from .views import (
-    login,
-    register,
     mypage,
     confirmOrderHistory,
     changeDeliveryInfo,
@@ -12,8 +10,6 @@ from .views import (
 app_name = 'accounts'
 
 urlpatterns = [
-    path('login/', login, name='login'),
-    path('register/', register, name='register'),
     path('mypage/', mypage, name='mypage'),
     path(
         'mypage/confirm-order-history/',
