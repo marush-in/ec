@@ -13,17 +13,25 @@
 {% load i18n %}
 
 {% block content %}
-<div class="container mb-5 padding-top">
-  <div class="row">
-    <h2>{% trans "Sign Out" %}</h2>
-    <p>{% trans 'Are you sure you want to sign out?' %}</p>
-    <form method="post" action="{% url 'account_logout' %}">
-      {% csrf_token %}
-      {% if redirect_field_value %}
-      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-      {% endif %}
-      <button type="submit" class="btn btn-primary mt-5">ログアウトする</button>
-    </form>
+  <div class="container mb-5 padding-top">
+    <div class="row">
+      {% include 'includes/accounts/sidebar.html' %}
+      <div class="col-lg-8">
+        <div class="card card-info">
+          <div class="card-header text-center text-black">
+            ログアウトしますか？
+          </div>
+          <div class="card-body">
+            <form method="post" action="{% url 'account_logout' %}">
+              {% csrf_token %}
+              {% if redirect_field_value %}
+              <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+              {% endif %}
+              <button type="submit" class="btn btn-primary">ログアウトする</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 {% endblock %}
