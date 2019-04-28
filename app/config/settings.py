@@ -166,6 +166,8 @@ STRIPE_SECRET_KEY = os.environ['STRIPE_SECRET_KEY']
 
 
 # Authentication ＆ django-allauth
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
 SITE_ID = 1
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
@@ -173,10 +175,11 @@ AUTHENTICATION_BACKENDS = (
 )
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_EMAIL_REQUIRED = True
 
-LOGIN_REDIRECT_URL = '/account/mypage/'
-ACCOUNT_LOGOUT_REDIRECT_URL = '/account/login/'
-
-LOGIN_URL = '/account/login/'
+LOGIN_REDIRECT_URL = '/accounts/mypage/'
+ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
+LOGIN_URL = '/accounts/login/'
