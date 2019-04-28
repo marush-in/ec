@@ -18,6 +18,9 @@ class Settings(models.Model):
     ga_tag = models.TextField(
         verbose_name='GoogleAnalyticsタグ', max_length=600, blank=True
     )
+    delivery_fee = models.IntegerField(
+        verbose_name='配送料金', default=600
+    )
     instagram = models.CharField(
         verbose_name='Instagram', max_length=240, blank=True
     )
