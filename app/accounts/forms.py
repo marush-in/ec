@@ -10,5 +10,6 @@ class CustomSignupForm(SignupForm):
     def signup(self, request, user):
         user.full_name = self.cleaned_data['full_name']
         user.name_kana = self.cleaned_data['name_kana']
+        print(user.full_name)
         user.save()
         return user

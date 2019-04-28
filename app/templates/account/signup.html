@@ -20,12 +20,12 @@
     <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
       {% csrf_token %}
       <div class="form-group">
-        <label for="id_email">氏名 <span class="text-danger">必須</span></label>
-        <input type="text" name="full_name" placeholder="氏名" required id="id_email" class="form-control">
+        <label>氏名 <span class="text-danger">必須</span></label>
+        <input type="text" name="full_name" placeholder="氏名" required class="form-control">
       </div>
       <div class="form-group">
-        <label for="id_email">氏名カナ <span class="text-danger">必須</span></label>
-        <input type="text" name="name_kana" placeholder="氏名カナ" required id="id_email" class="form-control">
+        <label>氏名カナ <span class="text-danger">必須</span></label>
+        <input type="text" name="name_kana" placeholder="氏名カナ" required class="form-control">
       </div>
       <div class="form-group">
         <label for="id_email">メールアドレス <span class="text-danger">必須</span></label>

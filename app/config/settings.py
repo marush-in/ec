@@ -169,6 +169,10 @@ STRIPE_SECRET_KEY = os.environ['STRIPE_SECRET_KEY']
 # Authentication ＆ django-allauth
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
+ACCOUNT_FORMS = {
+    'signup': 'accounts.forms.CustomSignupForm',
+}
+
 SITE_ID = 1
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
