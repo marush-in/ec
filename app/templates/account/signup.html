@@ -15,11 +15,22 @@
 {% block content %}
 <div class="contact-area form-center" >
   <div class="contact-info form-center">
-    <h2>{% trans "Sign Up" %}</h2>
-    <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+    <h2>ユーザー登録</h2>
+    <p>すでにアカウントをお持ちであれば、こちらから<a href="{{ login_url }}">ログイン</a>してください。</p>
     <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
       {% csrf_token %}
-      {{ form.as_p }}
+      <div class="form-group">
+        <label for="id_email">メールアドレス:</label>
+        <input type="email" name="email" placeholder="メールアドレス" required id="id_email" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="id_password1">パスワード:</label>
+        <input type="password" name="password1" placeholder="パスワード" required id="id_password1" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="id_password2">パスワード(確認用):</label>
+        <input type="password" name="password2" placeholder="パスワード(確認用)" required id="id_password2" class="form-control">
+      </div>
       {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
       {% endif %}
