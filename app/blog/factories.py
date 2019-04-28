@@ -6,7 +6,7 @@ from common.factories import Faker
 from .models import Category, Post, PopularPost
 
 
-class CategoryFactory(DjangoModelFactory):
+class PostCategoryFactory(DjangoModelFactory):
     name = FuzzyText(length=15)
     slug = FuzzyText(length=15)
 

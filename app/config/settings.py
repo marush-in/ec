@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'django_summernote',
     # 'storages',
     'contacts.apps.ContactsConfig',
+    'common.apps.CommonConfig',
     'accounts.apps.AccountsConfig',
     'blog.apps.BlogConfig',
     'mailmagazine.apps.MailmagazineConfig',

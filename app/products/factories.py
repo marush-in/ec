@@ -6,7 +6,7 @@ from common.factories import Faker
 from .models import Category, Brand, Product
 
 
-class CategoryFactory(DjangoModelFactory):
+class ProductCategoryFactory(DjangoModelFactory):
     name = FuzzyText(length=15)
     slug = FuzzyText(length=15)
     image = factory.django.ImageField(
