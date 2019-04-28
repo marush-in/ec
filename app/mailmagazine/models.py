@@ -4,7 +4,7 @@ from django.db import models
 
 class MailMagazine(models.Model):
     user = models.ForeignKey(
-        get_user_model(), on_delete=models.CASCADE
+        get_user_model(), on_delete=models.CASCADE, blank=True,
     )
     email = models.EmailField(verbose_name='メールアドレス', max_length=254)
     created_at = models.DateTimeField(verbose_name='登録日時', auto_now_add=True)
