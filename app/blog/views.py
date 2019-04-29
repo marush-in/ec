@@ -1,7 +1,8 @@
+from django.db.models import Q
 from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, DetailView
 
-from .models import Post, Category
+from .models import Category, PopularPost, Post
 
 
 class PostListView(ListView):
@@ -20,7 +21,16 @@ class PostDetailView(DetailView):
         return context
 
     def get_popular_posts(self):
-        return Post.objects.all()
+        popular_posts = PopularPost.objects.order_by('-created_at')[:5]
+        queries = [
+            Q(pk=popular_post.post_id)
+            for popular_post in popular_posts
+        ]
+        query = queries.pop()
+        for item in queries:
+            query |= item
+        posts = Post.objects.filter(query)
+        return posts
 
 
 class PostListByCategoryView(ListView):
