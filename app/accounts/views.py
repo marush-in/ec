@@ -11,7 +11,7 @@ from .models import CustomUser, ShippingAddress
 class CustomUserUpdateView(UpdateView):
     form_class = CustomUserUpdateForm
     model = get_user_model()
-    template_name = 'accounts/update_costome_user.html'
+    template_name = 'accounts/update_costom_user.html'
 
     def get_queryset(self):
         user = self.request.user
