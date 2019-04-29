@@ -58,7 +58,10 @@ class DeleteShippingAddressView(DeleteView):
 
 @login_required
 def mypage(request):
-    return render(request, 'accounts/mypage.html')
+    user = request.user
+    return render(request, 'accounts/mypage.html', {
+        'user': user
+    })
 
 
 @login_required
