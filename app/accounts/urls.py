@@ -3,6 +3,8 @@ from .views import (
     mypage,
     ShippingAddressListView,
     RegisterShippingAddressView,
+    UpadateShippingAddressView,
+    DeleteShippingAddressView,
     confirmOrderHistory,
     changeDeliveryInfo,
     changeUserInfo,
@@ -14,14 +16,24 @@ app_name = 'accounts'
 urlpatterns = [
     path('mypage/', mypage, name='mypage'),
     path(
-        'mypage/shipping-address-list',
+        'shipping-address-list',
         ShippingAddressListView.as_view(),
         name='shipping-address-list'
     ),
     path(
-        'mypage/register-shipping-address',
+        'register-shipping-address',
         RegisterShippingAddressView.as_view(),
         name='register-shipping-address'
+    ),
+    path(
+        'update-shipping-address/<int:pk>',
+        UpadateShippingAddressView.as_view(),
+        name='update-shipping-address'
+    ),
+    path(
+        'delete-shipping-address/<int:pk>',
+        DeleteShippingAddressView.as_view(),
+        name='delete-shipping-address'
     ),
     path(
         'mypage/confirm-order-history/',

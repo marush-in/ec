@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 
 from .forms import RegisterShippingAddressForm
 from .models import ShippingAddress
@@ -12,12 +12,33 @@ class ShippingAddressListView(ListView):
     model = ShippingAddress
     template_name = 'accounts/shipping_address_list.html'
 
+    def get_queryset(self):
+        user = self.request.user
+        queryset = ShippingAddress.objects.filter(user_id=user.id)
+        return queryset
+
 
 class RegisterShippingAddressView(CreateView):
     form_class = RegisterShippingAddressForm
     model = ShippingAddress
     success_url = reverse_lazy('accounts:shipping-address-list')
     template_name = 'accounts/register_shipping_address.html'
+
+    def form_valid(self, form):
+        form.instance.user_id = self.request.user.id
+        return super(RegisterShippingAddressView, self).form_valid(form)
+
+
+class UpadateShippingAddressView(UpdateView):
+    form_class = RegisterShippingAddressForm
+    model = ShippingAddress
+    success_url = reverse_lazy('accounts:shipping-address-list')
+    template_name = 'accounts/register_shipping_address.html'
+
+
+class DeleteShippingAddressView(DeleteView):
+    model = ShippingAddress
+    success_url = reverse_lazy('accounts:shipping-address-list')
 
 
 @login_required
