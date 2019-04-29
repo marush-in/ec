@@ -1,10 +1,22 @@
+from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 
-from .forms import RegisterShippingAddressForm
-from .models import ShippingAddress
+from .forms import RegisterShippingAddressForm, CustomUserUpdateForm
+from .models import CustomUser, ShippingAddress
+
+
+class CustomUserUpdateView(UpdateView):
+    form_class = CustomUserUpdateForm
+    model = get_user_model()
+    template_name = 'accounts/update_costome_user.html'
+
+    def get_queryset(self):
+        user = self.request.user
+        queryset = CustomUser.objects.filter(id=user.id)
+        return queryset
 
 
 class ShippingAddressListView(ListView):
@@ -41,6 +53,7 @@ class DeleteShippingAddressView(DeleteView):
     model = ShippingAddress
     success_url = reverse_lazy('accounts:shipping-address-list')
     template_name = 'accounts/delete_shipping_address.html'
+
 
 @login_required
 def mypage(request):

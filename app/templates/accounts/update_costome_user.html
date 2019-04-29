@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+{% block description %}{% endblock %}
+{% block og_title %}{% endblock %}
+{% block og_description %}{% endblock %}
+{% block ogp_type %}website{% endblock %}
+{% block og_image %}{% endblock %}
+{% block tw_title %}{{% endblock %}
+{% block tw_description %}{{% endblock %}
+{% block tw_image %}{% endblock %}
+
+{% block content %}
+  <div class="container mb-5 padding-top">
+    <div class="row">
+      {% include 'includes/accounts/sidebar.html' %}
+      <div class="col-lg-8">
+        <div class="card card-info">
+          <div class="card-header text-center text-black">
+            ユーザー情報の更新
+          </div>
+          <div class="card-body">
+            <form method="post">
+              {% csrf_token %}
+            <div class="form-group">
+              <label>氏名 <span class="text-danger">必須</span></label>
+              <input type="text" name="full_name" placeholder="氏名" required class="form-control">
+            </div>
+            <div class="form-group">
+              <label>氏名カナ <span class="text-danger">必須</span></label>
+              <input type="text" name="name_kana" placeholder="氏名カナ" required class="form-control">
+            </div>
+              <button class="btn btn-primary btn-sm mt-4">更新する</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

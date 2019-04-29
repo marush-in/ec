@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import (
     mypage,
+    CustomUserUpdateView,
     ShippingAddressListView,
     RegisterShippingAddressView,
     UpadateShippingAddressView,
@@ -15,6 +16,11 @@ app_name = 'accounts'
 
 urlpatterns = [
     path('mypage/', mypage, name='mypage'),
+    path(
+        'update-custom-user/<int:pk>',
+        CustomUserUpdateView.as_view(),
+        name='update-custom-user'
+    ),
     path(
         'shipping-address-list',
         ShippingAddressListView.as_view(),

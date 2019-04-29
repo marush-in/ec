@@ -1,7 +1,7 @@
 <div class="col-lg-4">
   <ul class="list-group">
-    <li class="list-group-item"><a href="{% url 'accounts:mypage'%}">Home</a></li>
-    <li class="list-group-item"><a href="#">ユーザー情報を変更する</a></li>
+    <li class="list-group-item"><a href="{% url 'accounts:mypage' %}">Home</a></li>
+    <li class="list-group-item"><a href="{% url 'accounts:update-custom-user' request.user.id %}">ユーザー情報を変更する</a></li>
     <li class="list-group-item"><a href="{% url 'accounts:shipping-address-list'%}">配送情報の登録、変更をする</a></li>
     <li class="list-group-item"><a href="#">注文履歴を確認する</a></li>
     <li class="list-group-item"><a href="#">いいねをした商品を確認する</a></li>

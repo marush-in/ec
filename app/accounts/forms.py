@@ -1,5 +1,5 @@
 from django import forms
-# from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model
 
 from allauth.account.forms import SignupForm
 
@@ -18,10 +18,10 @@ class CustomSignupForm(SignupForm):
         return user
 
 
-# class UserUpdateForm(forms.ModelForm):
-#     class Meta:
-#         model = get_user_model()
-#         fields = ('full_name', 'name_kana')
+class CustomUserUpdateForm(forms.ModelForm):
+    class Meta:
+        model = get_user_model()
+        fields = ('full_name', 'name_kana')
 
 
 class RegisterShippingAddressForm(forms.ModelForm):
