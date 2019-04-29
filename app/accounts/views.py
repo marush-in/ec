@@ -11,6 +11,7 @@ from .models import CustomUser, ShippingAddress
 class CustomUserUpdateView(UpdateView):
     form_class = CustomUserUpdateForm
     model = get_user_model()
+    success_url = reverse_lazy('accounts:mypage')
     template_name = 'accounts/update_costom_user.html'
 
     def get_queryset(self):
