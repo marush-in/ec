@@ -3,7 +3,7 @@ from factory.django import DjangoModelFactory
 from factory.fuzzy import FuzzyText, FuzzyInteger
 
 from common.factories import Faker
-from .models import Category, Brand, Product
+from .models import Category, Brand, Product, PopularProduct
 
 
 class ProductCategoryFactory(DjangoModelFactory):
@@ -58,3 +58,10 @@ class ProductFactory(DjangoModelFactory):
 
     class Meta:
         model = Product
+
+
+class PopularProductFactory(DjangoModelFactory):
+    product = factory.Iterator(Product.objects.all())
+
+    class Meta:
+        model = PopularProduct
