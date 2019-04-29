@@ -1,4 +1,4 @@
-from django.db.models import Prefetch, Q
+from django.db.models import Q
 from django.views.generic import TemplateView
 
 from .models import (
