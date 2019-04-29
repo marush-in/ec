@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+{% block description %}{% endblock %}
+{% block og_title %}{% endblock %}
+{% block og_description %}{% endblock %}
+{% block ogp_type %}website{% endblock %}
+{% block og_image %}{% endblock %}
+{% block tw_title %}{{% endblock %}
+{% block tw_description %}{{% endblock %}
+{% block tw_image %}{% endblock %}
+
+{% block content %}
+  <div class="container mb-5 padding-top">
+    <div class="row">
+      {% include 'includes/accounts/sidebar.html' %}
+      <div class="col-lg-8">
+        <div class="card card-info">
+          <div class="card-header text-center text-black">
+            登録している配送先
+          </div>
+          <div class="card-body">
+            <div><a href="{% url 'accounts:register-shipping-address' %}">新しい住所を追加する</a></div>
+            <div class="row mt-4">
+              <div class="col-lg-6 mb-4">
+                <p>名前</p>
+                <p>550-1111</p>
+                <p>東京都, 東京都</p>
+                <p>電話番号: 00000000</p>
+                <button class="btn btn-primary btn-sm mr-2">編集する</button>
+                <button class="btn btn-danger btn-sm">削除する</button>
+              </div>
+              <div class="col-lg-6">
+                <p>名前</p>
+                <p>550-1111</p>
+                <p>東京都, 東京都</p>
+                <p>電話番号: 00000000</p>
+                <button class="btn btn-primary btn-sm mr-2">編集する</button>
+                <button class="btn btn-danger btn-sm">削除する</button>
+              </div>
+              <div class="col-lg-6">
+                <p>名前</p>
+                <p>550-1111</p>
+                <p>東京都, 東京都</p>
+                <p>電話番号: 00000000</p>
+                <button class="btn btn-primary btn-sm mr-2">編集する</button>
+                <button class="btn btn-danger btn-sm">削除する</button>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

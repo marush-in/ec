@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+{% block description %}{% endblock %}
+{% block og_title %}{% endblock %}
+{% block og_description %}{% endblock %}
+{% block ogp_type %}website{% endblock %}
+{% block og_image %}{% endblock %}
+{% block tw_title %}{{% endblock %}
+{% block tw_description %}{{% endblock %}
+{% block tw_image %}{% endblock %}
+
+{% block content %}
+  <div class="container mb-5 padding-top">
+    <div class="row">
+      {% include 'includes/accounts/sidebar.html' %}
+      <div class="col-lg-8">
+        <div class="card card-info">
+          <div class="card-header text-center text-black">
+            配送先を追加する
+          </div>
+          <div class="card-body">
+            <form method="POST">
+              {% csrf_token %}
+              <div class="form-group">
+                <label>氏名 <span class="text-danger">必須</span></label>
+                <input type="text" name="name" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>郵便番号 <span class="text-danger">必須</span><span class="help-block"></span></label>
+                <input type="text" name="post_code" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>都道府県 <span class="text-danger">必須</span></label>
+                <select name="prefecture" id="prefecture" class="form-control">
+                  <option value="">都道府県を選択してください</option>
+                  <option {% if form.data.prefecture == '北海道' %}selected{% endif %}>北海道</option>
+                  <option {% if form.data.prefecture == '青森県' %}selected{% endif %}>青森県</option>
+                  <option {% if form.data.prefecture == '岩手県' %}selected{% endif %}>岩手県</option>
+                  <option {% if form.data.prefecture == '宮城県' %}selected{% endif %}>宮城県</option>
+                  <option {% if form.data.prefecture == '秋田県' %}selected{% endif %}>秋田県</option>
+                  <option {% if form.data.prefecture == '山形県' %}selected{% endif %}>山形県</option>
+                  <option {% if form.data.prefecture == '福島県' %}selected{% endif %}>福島県</option>
+                  <option {% if form.data.prefecture == '茨城県' %}selected{% endif %}>茨城県</option>
+                  <option {% if form.data.prefecture == '栃木県' %}selected{% endif %}>栃木県</option>
+                  <option {% if form.data.prefecture == '群馬県' %}selected{% endif %}>群馬県</option>
+                  <option {% if form.data.prefecture == '埼玉県' %}selected{% endif %}>埼玉県</option>
+                  <option {% if form.data.prefecture == '千葉県' %}selected{% endif %}>千葉県</option>
+                  <option {% if form.data.prefecture == '東京都' %}selected{% endif %}>東京都</option>
+                  <option {% if form.data.prefecture == '神奈川県' %}selected{% endif %}>神奈川県</option>
+                  <option {% if form.data.prefecture == '新潟県' %}selected{% endif %}>新潟県</option>
+                  <option {% if form.data.prefecture == '富山県' %}selected{% endif %}>富山県</option>
+                  <option {% if form.data.prefecture == '石川県' %}selected{% endif %}>石川県</option>
+                  <option {% if form.data.prefecture == '福井県' %}selected{% endif %}>福井県</option>
+                  <option {% if form.data.prefecture == '山梨県' %}selected{% endif %}>山梨県</option>
+                  <option {% if form.data.prefecture == '長野県' %}selected{% endif %}>長野県</option>
+                  <option {% if form.data.prefecture == '岐阜県' %}selected{% endif %}>岐阜県</option>
+                  <option {% if form.data.prefecture == '静岡県' %}selected{% endif %}>静岡県</option>
+                  <option {% if form.data.prefecture == '愛知県' %}selected{% endif %}>愛知県</option>
+                  <option {% if form.data.prefecture == '三重県' %}selected{% endif %}>三重県</option>
+                  <option {% if form.data.prefecture == '滋賀県' %}selected{% endif %}>滋賀県</option>
+                  <option {% if form.data.prefecture == '京都府' %}selected{% endif %}>京都府</option>
+                  <option {% if form.data.prefecture == '大阪府' %}selected{% endif %}>大阪府</option>
+                  <option {% if form.data.prefecture == '兵庫県' %}selected{% endif %}>兵庫県</option>
+                  <option {% if form.data.prefecture == '奈良県' %}selected{% endif %}>奈良県</option>
+                  <option {% if form.data.prefecture == '和歌山県' %}selected{% endif %}>和歌山県</option>
+                  <option {% if form.data.prefecture == '鳥取県' %}selected{% endif %}>鳥取県</option>
+                  <option {% if form.data.prefecture == '島根県' %}selected{% endif %}>島根県</option>
+                  <option {% if form.data.prefecture == '岡山県' %}selected{% endif %}>岡山県</option>
+                  <option {% if form.data.prefecture == '広島県' %}selected{% endif %}>広島県</option>
+                  <option {% if form.data.prefecture == '山口県' %}selected{% endif %}>山口県</option>
+                  <option {% if form.data.prefecture == '徳島県' %}selected{% endif %}>徳島県</option>
+                  <option {% if form.data.prefecture == '香川県' %}selected{% endif %}>香川県</option>
+                  <option {% if form.data.prefecture == '愛媛県' %}selected{% endif %}>愛媛県</option>
+                  <option {% if form.data.prefecture == '高知県' %}selected{% endif %}>高知県</option>
+                  <option {% if form.data.prefecture == '福岡県' %}selected{% endif %}>福岡県</option>
+                  <option {% if form.data.prefecture == '佐賀県' %}selected{% endif %}>佐賀県</option>
+                  <option {% if form.data.prefecture == '長崎県' %}selected{% endif %}>長崎県</option>
+                  <option {% if form.data.prefecture == '熊本県' %}selected{% endif %}>熊本県</option>
+                  <option {% if form.data.prefecture == '大分県' %}selected{% endif %}>大分県</option>
+                  <option {% if form.data.prefecture == '宮崎県' %}selected{% endif %}>宮崎県</option>
+                  <option {% if form.data.prefecture == '鹿児島県' %}selected{% endif %}>鹿児島県</option>
+                  <option {% if form.data.prefecture == '沖縄県' %}selected{% endif %}>沖縄県</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>市区町村 <span class="text-danger">必須</span></label>
+                <input type="text" name="city" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>町名・番地 <span class="text-danger">必須</span></label>
+                <input type="text" name="region" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>アパート・マンション名 </label>
+                <input type="text" name="building_name" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>会社名</label>
+                <input type="text" name="company_name" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>電話番号 <span class="text-danger">必須</span></label>
+                <input type="text" name="phone_number" class="form-control">
+              </div>
+              <button type="submit" class="btn btn-primary mt-5">登録する</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

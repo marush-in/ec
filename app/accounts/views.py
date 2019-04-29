@@ -1,5 +1,23 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, ListView
+
+from .forms import RegisterShippingAddressForm
+from .models import ShippingAddress
+
+
+class ShippingAddressListView(ListView):
+    context_object_name = 'shipping_addresses'
+    model = ShippingAddress
+    template_name = 'accounts/shipping_address_list.html'
+
+
+class RegisterShippingAddressView(CreateView):
+    form_class = RegisterShippingAddressForm
+    model = ShippingAddress
+    success_url = reverse_lazy('accounts:shipping-address-list')
+    template_name = 'accounts/register_shipping_address.html'
 
 
 @login_required
