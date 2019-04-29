@@ -1,4 +1,4 @@
-# from django.db.models import Q
+from django.db.models import Prefetch, Q
 from django.views.generic import TemplateView
 
 from .models import (
@@ -10,7 +10,7 @@ from .models import (
     Legal,
     Faq_content
 )
-from products.models import Brand, Category, Product
+from products.models import Brand, Category, Product, PopularProduct
 
 
 class IndevView(TemplateView):
@@ -24,14 +24,16 @@ class IndevView(TemplateView):
         return context
 
     def get_popular_products(self):
-        return Product.objects.all()
-        # popular_products = PopularProduct.objects.order_by('-created_at')[:8]
-        # for num in range(popular_products.count()):
-        #     if num == 0:
-        #         queryset = 'Q(name=popular_products[' + str(num) + '])'
-        #     else:
-        #         queryset += ' | Q(name=popular_products[' + str(num) + '])'
-        # return Product.objects.filter(queryset)
+        popular_products = PopularProduct.objects.order_by('-created_at')[:8]
+        queries = [
+            Q(pk=popular_product.product_id)
+            for popular_product in popular_products
+        ]
+        query = queries.pop()
+        for item in queries:
+            query |= item
+        products = Product.objects.filter(query)
+        return products
 
 
 class GuideView(TemplateView):
