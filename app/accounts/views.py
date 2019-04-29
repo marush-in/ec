@@ -37,9 +37,10 @@ class UpadateShippingAddressView(UpdateView):
 
 
 class DeleteShippingAddressView(DeleteView):
+    context_object_name = 'shipping_address'
     model = ShippingAddress
     success_url = reverse_lazy('accounts:shipping-address-list')
-
+    template_name = 'accounts/delete_shipping_address.html'
 
 @login_required
 def mypage(request):

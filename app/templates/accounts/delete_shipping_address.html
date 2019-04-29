@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+{% block description %}{% endblock %}
+{% block og_title %}{% endblock %}
+{% block og_description %}{% endblock %}
+{% block ogp_type %}website{% endblock %}
+{% block og_image %}{% endblock %}
+{% block tw_title %}{{% endblock %}
+{% block tw_description %}{{% endblock %}
+{% block tw_image %}{% endblock %}
+
+{% block content %}
+  <div class="container mb-5 padding-top">
+    <div class="row">
+      {% include 'includes/accounts/sidebar.html' %}
+      <div class="col-lg-8">
+        <div class="card card-info">
+          <div class="card-header text-center text-black">
+            登録している配送先
+          </div>
+          <div class="card-body">
+              <p>こちらの登録している配送先を削除してよろしいですか?</p>
+              <div class="mb-4">
+                {{ shipping_address.name }}
+                {{ shipping_address.post_code }}
+                {{ shipping_address.prefecture }}
+                {{ shipping_address.city }}
+                {{ shipping_address.region }}
+                {{ shipping_address.building_name }}
+                {{ shipping_address.company_name }}
+                {{ shipping_address.phone_number }}
+              </div>
+              <form method="post">
+                <button class="btn btn-danger">削除する</button>
+                {% csrf_token %}
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -30,8 +30,8 @@
                     {{ shipping_address.prefecture }}{{ shipping_address.city }}{{ shipping_address.region }}{{ shipping_address.building_name }}
                   </p>
                   <p>電話番号: {{ shipping_address.phone_number }}</p>
-                  <button class="btn btn-primary btn-sm mr-2">編集する</button>
-                  <button class="btn btn-danger btn-sm">削除する</button>
+                  <a href="{% url 'accounts:update-shipping-address' shipping_address.id %}" class="btn btn-primary btn-sm mr-2 text-white">編集する</a>
+                  <a href="{% url 'accounts:delete-shipping-address' shipping_address.id %}" class="btn btn-danger btn-sm text-white">削除する</a>
                 </div>
               {% endfor %}
             </div>
