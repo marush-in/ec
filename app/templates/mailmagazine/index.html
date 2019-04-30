@@ -20,7 +20,8 @@
               <div>
                 <h2>メルマガ登録</h2>
                 <p>メルマガ登録を行うために、メールアドレスを入力して登録ボタンをクリックしてください。</p>
-                <form action="POST">
+                <form method="POST">
+                  {% csrf_token %}
                   <div class="form-group">
                     <label>登録メールアドレス <span class="text-danger">必須</span></label>
                     <input type="email" name="email" class="form-control" required>
@@ -32,6 +33,7 @@
                 <h2>メルマガ解除</h2>
                 <p>メルマガ解除を行うために、メールアドレスを入力して解除ボタンをクリックしてください。</p>
                 <form action="POST">
+                  {% csrf_token %}
                   <div class="form-group">
                     <label>解除メールアドレス <span class="text-danger">必須</span></label>
                     <input type="email" name="email" class="form-control" required>
