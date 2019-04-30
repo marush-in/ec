@@ -4,7 +4,11 @@
         <img src="{{ product.image.url }}" alt="">
         <img class="hover-img" src="{{ product.image.url }}" alt="">
         <div class="product-favourite">
-          <a href="#" class="favme fa fa-heart"></a>
+          {% if user.is_authenticated %}
+            <a href="" class="favme fa fa-heart"></a>
+          {% else %}
+            <a href="/accouns/login" class="favme fa fa-heart"></a>
+          {% endif %}
         </div>
     </div>
     <div class="product-description">
@@ -14,7 +18,11 @@
       <p class="product-price">¥{{ product.price }}</p>
       <div class="hover-content">
           <div class="add-to-cart-btn">
-            <a href="#" class="btn essence-btn">Add to Cart</a>
+            {% if user.is_authenticated %}
+              <a href="#" class="btn essence-btn">Add to Cart</a>
+            {% else %}
+              <a href="/accouns/login" class="btn essence-btn">Add to Cart</a>
+            {% endif %}
           </div>
       </div>
     </div>
