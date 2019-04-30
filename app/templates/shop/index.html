@@ -85,7 +85,7 @@
                 </div>
                 <div class="product-description">
                   <span>{{ popular_product.category }}</span>
-                  <a href="">
+                  <a href="{% url 'products:detail' popular_product.slug %}">
                     <h6>{{ popular_product.name }}</h6>
                   </a>
                   <p class="product-price">¥{{ popular_product.price }}</p>
