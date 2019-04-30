@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+{% block description %}{% endblock %}
+{% block og_title %}{% endblock %}
+{% block og_description %}{% endblock %}
+{% block ogp_type %}website{% endblock %}
+{% block og_image %}{% endblock %}
+{% block tw_title %}{{% endblock %}
+{% block tw_description %}{{% endblock %}
+{% block tw_image %}{% endblock %}
+
+{% block content %}
+  <div class="single-blog-wrapper">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8">
+          <div class="regular-page-content-wrapper section-padding-80">
+            <div class="regular-page-text">
+              <div>
+                <h2>メルマガ登録</h2>
+                <form action="POST">
+                  <div class="form-group">
+                    <label>登録メールアドレス <span class="text-danger">必須</span></label>
+                    <input type="email" name="email" class="form-control" required>
+                  </div>
+                  <button type="submit" class="btn btn-primary mt-3">登録する</button>
+                </form>
+              </div>
+              <div class="mt-5">
+                <h2>メルマガ解除</h2>
+                <form action="POST">
+                  <div class="form-group">
+                    <label>解除メールアドレス <span class="text-danger">必須</span></label>
+                    <input type="email" name="email" class="form-control" required>
+                  </div>
+                  <button type="submit" class="btn btn-danger mt-3">解除する</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
