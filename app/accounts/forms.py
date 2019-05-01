@@ -1,3 +1,5 @@
+import re
+
 from django import forms
 from django.contrib.auth import get_user_model
 
@@ -9,6 +11,11 @@ from .models import ShippingAddress
 class CustomSignupForm(SignupForm):
     full_name = forms.CharField(max_length=50)
     name_kana = forms.CharField(max_length=50)
+
+    def clean_name_kana(self):
+        name_kana = self.cleaned_data['name_kana']
+        if not re.fullmatch(r'[ァ-ヴー　 ]+', name_kana):
+            self.add_error('name_kana', '全角カタカナのみで入力してください。')
 
     def save(self, request):
         user = super(CustomSignupForm, self).save(request)

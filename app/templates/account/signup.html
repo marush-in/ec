@@ -20,23 +20,48 @@
     <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
       {% csrf_token %}
       <div class="form-group">
-        <label>氏名 <span class="text-danger">必須</span></label>
+        <label>
+          氏名 <span class="text-danger">必須</span>
+          {% if form.full_name.errors %}
+            <span class="text-danger">{{ form.full_name.errors }}</span>
+          {% endif %}
+        </label>
         <input type="text" name="full_name" placeholder="氏名" required class="form-control">
       </div>
       <div class="form-group">
-        <label>氏名カナ <span class="text-danger">必須</span></label>
+        <label>
+          氏名カナ <span class="text-danger">必須</span>
+          {% if form.name_kana.errors %}
+            <span class="text-danger">{{ form.name_kana.errors }}</>
+          {% endif %}
+        </label>
         <input type="text" name="name_kana" placeholder="氏名カナ" required class="form-control">
       </div>
       <div class="form-group">
-        <label for="id_email">メールアドレス <span class="text-danger">必須</span></label>
+        <label for="id_email">
+          メールアドレス <span class="text-danger">必須</span>
+          {% if form.email.errors %}
+            <span class="text-danger">{{ form.email.errors }}</>
+          {% endif %}
+        </label>
         <input type="email" name="email" placeholder="メールアドレス" required id="id_email" class="form-control">
       </div>
       <div class="form-group">
-        <label for="id_password1">パスワード <span class="text-danger">必須</span></label>
+        <label for="id_password1">
+          パスワード <span class="text-danger">必須</span>
+          {% if form.password1.errors %}
+            <span class="text-danger">{{ form.password1.errors }}</>
+          {% endif %}
+        </label>
         <input type="password" name="password1" placeholder="パスワード" required id="id_password1" class="form-control">
       </div>
       <div class="form-group">
-        <label for="id_password2">パスワード(確認用) <span class="text-danger">必須</span></label>
+        <label for="id_password2">
+          パスワード(確認用) <span class="text-danger">必須</span>
+          {% if form.password2.errors %}
+            <span class="text-danger">{{ form.password2.errors }}</>
+          {% endif %}
+        </label>
         <input type="password" name="password2" placeholder="パスワード(確認用)" required id="id_password2" class="form-control">
       </div>
       {% if redirect_field_value %}
