@@ -1,0 +1,53 @@
+#! /bin/bash
+
+APP="ec-app"
+RUN_APP="docker-compose run --rm ${APP}"
+MIGRATE="$RUN_APP ./manage.py migrate"
+BUILD_APP="docker-compose build"
+UP_APP="docker-compose up -d"
+DOWN_APP="docker-compose down"
+
+case "$1" in
+  "init")
+    if [ ! -e '.env' ]; then
+      cp .env.sample .env
+    fi
+    docker-compose down -v
+    docker volume rm ec-pgdata | true
+    docker volume rm ec-static | true
+    docker volume rm ec-media | true
+    $BUILD_APP
+    $MIGRATE
+    $RUN_APP ./manage.py loaddata shop_initial.json
+    $RUN_APP ./manage.py createfactorydata
+    ;;
+
+　"up")
+    $BUILD_APP
+    $MIGRATE
+    $UP_APP
+    ;;
+
+  "down")
+    $DOWN_APP
+    ;;
+  
+  "restart")
+    $DOWN_APP
+    $BUILD_APP
+    $MIGRATE
+    $UP_APP
+    ;;
+
+  "postgres")
+    docker-compose exec ec-postgres psql -U postgres
+    ;;
+
+  "flake8")
+    $RUN_APP flake8
+    ;;
+
+  "test")
+    $RUN_APPP ./manage.py test
+    ;;
+esac
