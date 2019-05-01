@@ -6,7 +6,9 @@ class MailMagazine(models.Model):
     user = models.ForeignKey(
         get_user_model(), on_delete=models.CASCADE, blank=True,
     )
-    email = models.EmailField(verbose_name='メールアドレス', max_length=254)
+    email = models.EmailField(
+        verbose_name='メールアドレス', max_length=254, unique=True
+    )
     created_at = models.DateTimeField(verbose_name='登録日時', auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='更新日時', auto_now=True)
 
