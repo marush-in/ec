@@ -35,18 +35,7 @@
                   <div class="total-products">
                     <p><span>{{ product_count }}</span> products found</p>
                   </div>
-                  <div class="product-sorting d-flex">
-                    <p>Sort by:</p>
-                    <form action="#" method="get">
-                      <select name="select" id="sortByselect">
-                        <option value="value">Highest Rated</option>
-                        <option value="value">Newest</option>
-                        <option value="value">Price: $$ - $</option>
-                        <option value="value">Price: $ - $$</option>
-                      </select>
-                      <input type="submit" class="d-none" value="">
-                    </form>
-                  </div>
+                  {% include 'includes/products/sort.html' %}
                 </div>
               </div>
             </div>
