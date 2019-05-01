@@ -39,6 +39,13 @@ case "$1" in
     $UP_APP
     ;;
 
+  "initdb")
+    docker-compose rm -s -f -v ec-postgres
+    docker volume rm ec-pgdata | true
+    $MIGRATE
+    $RUN_APP ./manage.py createfactorydata
+    ;;
+
   "postgres")
     docker-compose exec ec-postgres psql -U postgres
     ;;
