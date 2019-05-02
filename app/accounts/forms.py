@@ -43,3 +43,8 @@ class RegisterShippingAddressForm(forms.ModelForm):
             'name', 'post_code', 'prefecture', 'city', 'region',
             'building_name', 'company_name', 'phone_number'
         )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields.values():
+            field.widget.attrs['class'] = 'form-control'
