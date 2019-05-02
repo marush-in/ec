@@ -30,6 +30,18 @@
             {{ post.content }}
           {% endautoescape %}
         </div>
+        <div class="text-center mt-5">
+          {% if post.get_previous_by_created_at %}
+            <a href="{% url 'blog:post-detail' post.get_previous_by_created_at.slug %}" class="btn btn-sm btn-info mr-2">
+              前の記事へ
+            </a>
+          {% endif %}
+          {% if post.get_next_by_created_at %}
+            <a href="{% url 'blog:post-detail' post.get_next_by_created_at.slug %}" class="btn btn-sm btn-info">
+              次の記事へ
+            </a>
+          {% endif %}
+        </div>
       </div>
       <div class="related-blog-post">
         {% for popular_post in popular_posts %}
