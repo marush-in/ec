@@ -1,3 +1,7 @@
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
+
+
 from django.db import models
 from django.utils.safestring import mark_safe
 
@@ -63,14 +67,44 @@ class Product(models.Model):
     brand = models.ForeignKey(
         Brand, verbose_name='ブランド名', on_delete=models.PROTECT
     )
-    image = models.ImageField(
+    origin = models.ImageField(
         verbose_name='商品写真1', upload_to='uploads/', max_length=320, blank=True
+        )
+    image = ImageSpecField(
+        source='origin',
+        processors=[ResizeToFill(1000, 1300)],
+        format="JPEG",
     )
-    image2 = models.ImageField(
+    detail_image = ImageSpecField(
+        source='origin',
+        processors=[ResizeToFill(950, 1000)],
+        format="JPEG",
+    )
+    origin2 = models.ImageField(
         verbose_name='商品写真2', upload_to='uploads/', max_length=320, blank=True
     )
-    image3 = models.ImageField(
+    image2 = ImageSpecField(
+        source='origin2',
+        processors=[ResizeToFill(1000, 1300)],
+        format="JPEG",
+    )
+    detail_image2 = ImageSpecField(
+        source='origin2',
+        processors=[ResizeToFill(950, 1000)],
+        format="JPEG",
+    )
+    origin3 = models.ImageField(
         verbose_name='商品写真3', upload_to='uploads/', max_length=320, blank=True
+    )
+    image3 = ImageSpecField(
+        source='origin3',
+        processors=[ResizeToFill(1000, 1300)],
+        format="JPEG",
+    )
+    detail_image3 = ImageSpecField(
+        source='origin3',
+        processors=[ResizeToFill(950, 1000)],
+        format="JPEG",
     )
     price = models.IntegerField(verbose_name='価格', default=1000)
     stock = models.IntegerField(verbose_name='在庫数', default=1)
