@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'django_summernote',
+    'imagekit',
     # 'storages',
     'carts.apps.CartsConfig',
     'contacts.apps.ContactsConfig',

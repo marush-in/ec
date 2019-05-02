@@ -1,3 +1,6 @@
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
+
 from django.db import models
 from django.utils.safestring import mark_safe
 
@@ -23,8 +26,14 @@ class Post(models.Model):
     category = models.ForeignKey(
         Category, verbose_name='カテゴリー', on_delete=models.PROTECT
     )
-    eyecatch = models.ImageField(
+    origin = models.ImageField(
         verbose_name='サムネイル', upload_to='uploads/', max_length=320, blank=True
+    )
+    eyecatch = ImageSpecField(
+        source='origin',
+        processors=[ResizeToFill(540, 290)],
+        format="JPEG",
+        options={'quality': 90}
     )
     content = models.TextField(verbose_name='本文', max_length=40000)
     is_published = models.BooleanField(verbose_name='公開', default=False)
