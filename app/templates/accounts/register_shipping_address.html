@@ -23,15 +23,30 @@
             <form method="POST">
               {% csrf_token %}
               <div class="form-group">
-                <label>氏名 <span class="text-danger">必須</span></label>
+                <label>
+                  氏名 <span class="text-danger">必須</span>
+                  {% if form.name.errors %}
+                    <span class="text-danger">{{ form.name.errors }}</span>
+                  {% endif %}
+                </label>
                 <input type="text" name="name" class="form-control">
               </div>
               <div class="form-group">
-                <label>郵便番号 <span class="text-danger">必須</span><span class="help-block"></span></label>
+                <label>
+                  郵便番号 <span class="text-danger">必須</span><span class="help-block"></span>
+                  {% if form.post_code.errors %}
+                    <span class="text-danger">{{ form.post_code.errors }}</span>
+                  {% endif %}
+                </label>
                 <input type="text" name="post_code" class="form-control">
               </div>
               <div class="form-group">
-                <label>都道府県 <span class="text-danger">必須</span></label>
+                <label>
+                  都道府県 <span class="text-danger">必須</span>
+                  {% if form.prefecture.errors %}
+                    <span class="text-danger">{{ form.prefecture.errors }}</span>
+                  {% endif %}
+                </label>
                 <select name="prefecture" id="prefecture" class="form-control">
                   <option value="">都道府県を選択してください</option>
                   <option {% if form.data.prefecture == '北海道' %}selected{% endif %}>北海道</option>
@@ -84,11 +99,21 @@
                 </select>
               </div>
               <div class="form-group">
-                <label>市区町村 <span class="text-danger">必須</span></label>
+                <label>
+                  市区町村 <span class="text-danger">必須</span>
+                  {% if form.city.errors %}
+                    <span class="text-danger">{{ form.city.errors }}</span>
+                  {% endif %}
+                </label>
                 <input type="text" name="city" class="form-control">
               </div>
               <div class="form-group">
-                <label>町名・番地 <span class="text-danger">必須</span></label>
+                <label>
+                  町名・番地 <span class="text-danger">必須</span>
+                  {% if form.region.errors %}
+                    <span class="text-danger">{{ form.region.errors }}</span>
+                  {% endif %}
+                </label>
                 <input type="text" name="region" class="form-control">
               </div>
               <div class="form-group">
@@ -100,7 +125,12 @@
                 <input type="text" name="company_name" class="form-control">
               </div>
               <div class="form-group">
-                <label>電話番号 <span class="text-danger">必須</span></label>
+                <label>
+                  電話番号 <span class="text-danger">必須</span>
+                  {% if form.phone_number.errors %}
+                    <span class="text-danger">{{ form.phone_number.errors }}</span>
+                  {% endif %}
+                </label>
                 <input type="text" name="phone_number" class="form-control">
               </div>
               <button type="submit" class="btn btn-primary mt-5">登録する</button>
