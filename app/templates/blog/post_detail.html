@@ -47,7 +47,7 @@
         {% for popular_post in popular_posts %}
           <div class="single-related-blog-post">
             <img src="{{ popular_post.eyecatch.url }}" alt="">
-            <a href="#">
+            <a href="{% url 'blog:post-detail' popular_post.slug %}">
               <h5>{{ popular_post.title }}</h5>
             </a>
           </div>
