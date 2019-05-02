@@ -30,6 +30,11 @@ class CustomUserUpdateForm(forms.ModelForm):
         model = get_user_model()
         fields = ('full_name', 'name_kana')
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields.values():
+            field.widget.attrs['class'] = 'form-control'
+
 
 class RegisterShippingAddressForm(forms.ModelForm):
     class Meta:

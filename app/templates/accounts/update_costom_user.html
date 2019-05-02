@@ -22,24 +22,24 @@
           <div class="card-body">
             <form method="post">
               {% csrf_token %}
-            <div class="form-group">
-              <label>
-                氏名 <span class="text-danger">必須</span>
-                {% if form.full_name.errors %}
-                  <span class="text-danger">{{ form.full_name.errors }}</span>
-                {% endif %}
-              </label>
-              <input type="text" name="full_name" placeholder="氏名" required class="form-control">
-            </div>
-            <div class="form-group">
-              <label>
-                氏名カナ <span class="text-danger">必須</span>
-                {% if form.name_kana.errors %}
-                  <span class="text-danger">{{ form.name_kana.errors }}</span>
-                {% endif %}
-              </label>
-              <input type="text" name="name_kana" placeholder="氏名カナ" required class="form-control">
-            </div>
+              <div class="form-group">
+                <label>
+                  氏名 <span class="text-danger">必須</span>
+                  {% if form.full_name.errors %}
+                    <span class="text-danger">{{ form.full_name.errors }}</span>
+                  {% endif %}
+                </label>
+                {{ form.full_name }}
+              </div>
+              <div class="form-group">
+                <label>
+                  氏名カナ <span class="text-danger">必須</span>
+                  {% if form.name_kana.errors %}
+                    <span class="text-danger">{{ form.name_kana.errors }}</span>
+                  {% endif %}
+                </label>
+                {{ form.name_kana }}
+              </div>
               <button class="btn btn-primary btn-sm mt-4">更新する</button>
             </form>
           </div>
