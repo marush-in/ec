@@ -11,13 +11,18 @@ from .models import CustomUser, ShippingAddress
 class CustomUserUpdateView(UpdateView):
     form_class = CustomUserUpdateForm
     model = get_user_model()
-    success_url = reverse_lazy('accounts:mypage')
     template_name = 'accounts/update_costom_user.html'
 
     def get_queryset(self):
         user = self.request.user
         queryset = CustomUser.objects.filter(id=user.id)
         return queryset
+
+    def get_success_url(self):
+        pk = self.request.user.pk
+        return reverse_lazy('accounts:update-custom-user', kwargs={
+            'pk': pk}
+        )
 
 
 class ShippingAddressListView(ListView):
@@ -34,6 +39,7 @@ class ShippingAddressListView(ListView):
 class RegisterShippingAddressView(CreateView):
     form_class = RegisterShippingAddressForm
     model = ShippingAddress
+    success_url = reverse_lazy('accounts:shipping-address-list')
     success_url = reverse_lazy('accounts:shipping-address-list')
     template_name = 'accounts/register_shipping_address.html'
 
