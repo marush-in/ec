@@ -7,8 +7,6 @@ from .views import (
     UpadateShippingAddressView,
     DeleteShippingAddressView,
     confirmOrderHistory,
-    changeDeliveryInfo,
-    changeUserInfo,
     confirmDeleteUser,
 )
 
@@ -46,12 +44,6 @@ urlpatterns = [
         confirmOrderHistory,
         name='confirm-order-history'
     ),
-    path(
-        'mypage/change-delivery-info/',
-        changeDeliveryInfo,
-        name='change-delivery-info'
-    ),
-    path('mypage/change-user-info/', changeUserInfo, name='change-user-info'),
     path(
         'mypage/confirm-delete-user/',
         confirmDeleteUser,
