@@ -1,5 +1,7 @@
 import os
 
+from config.utils import global_ip_list
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -14,7 +16,7 @@ SECRET_KEY = ')pw7w4%+ef*v$&z&iiiql#ss*evhn11bl2vp5un*omp64tiax#'
 DEBUG = os.environ.get('DEBUG', 'false') == 'true'
 
 ALLOWED_HOSTS = []
-# NTERNAL_IPS =
+INTERNAL_IPS = global_ip_list(['127.0.0.1', '172.*.*.*',])
 
 
 # Application definition
