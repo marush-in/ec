@@ -89,9 +89,3 @@ class LegalView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['legal'] = Legal.objects.first()
         return context
-
-
-class MyView(TemplateView):
-
-    def get(self, request):
-        print(request.META["REMOTE_ADDR"])

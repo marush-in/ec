@@ -7,7 +7,6 @@ from .views import (
     TermsOfUseView,
     FaqView,
     LegalView,
-    MyView,
 )
 
 app_name = 'shop'
@@ -22,5 +21,4 @@ urlpatterns = [
     path('terms_of_use/', TermsOfUseView.as_view(), name='terms_of_use'),
     path('faq/', FaqView.as_view(), name='faq'),
     path('legal/', LegalView.as_view(), name='legal'),
-    path('myview', MyView.as_view(), name='myview')
 ]
