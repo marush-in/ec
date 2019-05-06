@@ -2,7 +2,7 @@
 
 APP="ec-app"
 RUN_APP="docker-compose run --rm ${APP}"
-MIGRATE="$RUN_APP ./manage.py migrate"
+MIGRATE="${RUN_APP} ./manage.py migrate"
 BUILD_APP="docker-compose build"
 UP_APP="docker-compose up -d"
 DOWN_APP="docker-compose down"
@@ -22,7 +22,7 @@ case "$1" in
     $RUN_APP ./manage.py createfactorydata
     ;;
 
-　"up")
+  "up")
     $BUILD_APP
     $MIGRATE
     $UP_APP
@@ -43,6 +43,7 @@ case "$1" in
     docker-compose rm -s -f -v ec-postgres
     docker volume rm ec-pgdata | true
     $MIGRATE
+    $RUN_APP ./manage.py loaddata shop_initial.json
     $RUN_APP ./manage.py createfactorydata
     ;;
 
@@ -55,6 +56,6 @@ case "$1" in
     ;;
 
   "test")
-    $RUN_APPP ./manage.py test
+    $RUN_APP ./manage.py test
     ;;
 esac
