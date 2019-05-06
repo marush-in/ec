@@ -9,11 +9,11 @@ admin.site.index_title = settings.ADMIN_INDEX_TITLE
 
 
 urlpatterns = [
+    path('', include('shop.urls')),
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('allauth.urls')),
-    path('', include('shop.urls')),
-    path('', include('contacts.urls')),
     path('blog/', include('blog.urls')),
+    path('contact/', include('contacts.urls')),
     # path('mailmagazine/', include('mailmagazine.urls')),
     path('orders/', include('orders.urls')),
     path('products/', include('products.urls')),
