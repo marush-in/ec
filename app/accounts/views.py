@@ -6,9 +6,10 @@ from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 
 from .forms import RegisterShippingAddressForm, CustomUserUpdateForm
 from .models import CustomUser, ShippingAddress
+from common.views import AccountsLoginRequiredView
 
 
-class CustomUserUpdateView(UpdateView):
+class CustomUserUpdateView(AccountsLoginRequiredView, UpdateView):
     form_class = CustomUserUpdateForm
     model = get_user_model()
     template_name = 'accounts/update_costom_user.html'
@@ -25,7 +26,7 @@ class CustomUserUpdateView(UpdateView):
         )
 
 
-class ShippingAddressListView(ListView):
+class ShippingAddressListView(AccountsLoginRequiredView, ListView):
     context_object_name = 'shipping_addresses'
     model = ShippingAddress
     template_name = 'accounts/shipping_address_list.html'
@@ -36,7 +37,7 @@ class ShippingAddressListView(ListView):
         return queryset
 
 
-class RegisterShippingAddressView(CreateView):
+class RegisterShippingAddressView(AccountsLoginRequiredView, CreateView):
     form_class = RegisterShippingAddressForm
     model = ShippingAddress
     success_url = reverse_lazy('accounts:shipping-address-list')
@@ -48,14 +49,14 @@ class RegisterShippingAddressView(CreateView):
         return super(RegisterShippingAddressView, self).form_valid(form)
 
 
-class UpadateShippingAddressView(UpdateView):
+class UpadateShippingAddressView(AccountsLoginRequiredView, UpdateView):
     form_class = RegisterShippingAddressForm
     model = ShippingAddress
     success_url = reverse_lazy('accounts:shipping-address-list')
     template_name = 'accounts/register_shipping_address.html'
 
 
-class DeleteShippingAddressView(DeleteView):
+class DeleteShippingAddressView(AccountsLoginRequiredView, DeleteView):
     context_object_name = 'shipping_address'
     model = ShippingAddress
     success_url = reverse_lazy('accounts:shipping-address-list')
