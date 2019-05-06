@@ -1,15 +1,15 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 
 from .forms import RegisterShippingAddressForm, CustomUserUpdateForm
 from .models import CustomUser, ShippingAddress
-from common.views import AccountsLoginRequiredView
 
 
-class CustomUserUpdateView(AccountsLoginRequiredView, UpdateView):
+class CustomUserUpdateView(LoginRequiredMixin, UpdateView):
     form_class = CustomUserUpdateForm
     model = get_user_model()
     template_name = 'accounts/update_costom_user.html'
@@ -26,7 +26,7 @@ class CustomUserUpdateView(AccountsLoginRequiredView, UpdateView):
         )
 
 
-class ShippingAddressListView(AccountsLoginRequiredView, ListView):
+class ShippingAddressListView(LoginRequiredMixin, ListView):
     context_object_name = 'shipping_addresses'
     model = ShippingAddress
     template_name = 'accounts/shipping_address_list.html'
@@ -37,7 +37,7 @@ class ShippingAddressListView(AccountsLoginRequiredView, ListView):
         return queryset
 
 
-class RegisterShippingAddressView(AccountsLoginRequiredView, CreateView):
+class RegisterShippingAddressView(LoginRequiredMixin, CreateView):
     form_class = RegisterShippingAddressForm
     model = ShippingAddress
     success_url = reverse_lazy('accounts:shipping-address-list')
@@ -49,14 +49,14 @@ class RegisterShippingAddressView(AccountsLoginRequiredView, CreateView):
         return super(RegisterShippingAddressView, self).form_valid(form)
 
 
-class UpadateShippingAddressView(AccountsLoginRequiredView, UpdateView):
+class UpadateShippingAddressView(LoginRequiredMixin, UpdateView):
     form_class = RegisterShippingAddressForm
     model = ShippingAddress
     success_url = reverse_lazy('accounts:shipping-address-list')
     template_name = 'accounts/register_shipping_address.html'
 
 
-class DeleteShippingAddressView(AccountsLoginRequiredView, DeleteView):
+class DeleteShippingAddressView(LoginRequiredMixin, DeleteView):
     context_object_name = 'shipping_address'
     model = ShippingAddress
     success_url = reverse_lazy('accounts:shipping-address-list')
