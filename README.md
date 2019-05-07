@@ -36,6 +36,16 @@
 ./operate postgres
 ```
 
+・マイグレーションファイルを作成する
+```
+./operate makemigrations
+```
+
+・マイグレーションファイルをDBに適用する
+```
+./operate migrate
+```
+
 ・文法を確認する
 ```
 ./operate flake8
