@@ -16,6 +16,7 @@ class CustomSignupForm(SignupForm):
         name_kana = self.cleaned_data['name_kana']
         if not re.fullmatch(r'[ァ-ヴー　 ]+', name_kana):
             self.add_error('name_kana', '全角カタカナのみで入力してください。')
+        return name_kana
 
     def save(self, request):
         user = super(CustomSignupForm, self).save(request)
