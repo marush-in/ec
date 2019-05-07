@@ -1,7 +1,7 @@
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
 
-
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils.safestring import mark_safe
 
@@ -137,6 +137,24 @@ class PopularProduct(models.Model):
     class Meta:
         verbose_name = '人気商品'
         verbose_name_plural = '人気商品'
+
+    def __str__(self):
+        return self.product.name
+
+
+class Like(models.Model):
+    product = models.ForeignKey(
+        Product, verbose_name='商品', on_delete=models.CASCADE
+    )
+    user = models.ForeignKey(
+        get_user_model(), verbose_name='ユーザー', on_delete=models.CASCADE,
+    )
+    created_at = models.DateTimeField(verbose_name='作成日時', auto_now_add=True)
+    updated_at = models.DateTimeField(verbose_name='更新日時', auto_now=True)
+
+    class Meta:
+        verbose_name = 'いいねされた商品'
+        verbose_name_plural = 'いいねされた商品'
 
     def __str__(self):
         return self.product.name
