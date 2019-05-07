@@ -21,9 +21,13 @@
           </div>
           <div class="card-body">
             <div class="row mt-4">
-              {% for product in products %}
-                {% include 'includes/products/product.html' %}
-              {% endfor %}
+              {% if products %}
+                {% for product in products %}
+                  {% include 'includes/products/product.html' %}
+                {% endfor %}
+              {% else %}
+                <p class="ml-4">いいねした商品はございません</p>
+              {% endif %}
             </div>
           </div>
         </div>

@@ -73,12 +73,14 @@ class LikeListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         user = self.request.user
         likes = Like.objects.filter(user=user)
-        queries = [Q(pk=like.product_id) for like in likes]
-        query = queries.pop()
-        for item in queries:
-            query |= item
-        queryset = Product.objects.filter(query)
-        return queryset
+        if likes:
+            queries = [Q(pk=like.product_id) for like in likes]
+            query = queries.pop()
+            for item in queries:
+                query |= item
+            queryset = Product.objects.filter(query)
+            return queryset
+        return
 
 
 @login_required
