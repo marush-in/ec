@@ -36,6 +36,11 @@
 ./operate postgres
 ```
 
+・管理ユーザーを作成する
+```
+./operate createsuperuser
+```
+
 ・マイグレーションファイルを作成する
 ```
 ./operate makemigrations
