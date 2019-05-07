@@ -100,7 +100,9 @@
             </form>
           </div>
           <div class="favourite-area">
-            <a href="#"><img src="{% static 'img/core-img/heart.svg' %}" alt=""></a>
+            <a href="{% if user.is_authenticated %}{% url 'accounts:like-list' %}{% else %}/accounts/login/{% endif %}">
+              <img src="{% static 'img/core-img/heart.svg' %}" alt="">
+            </a>
           </div>
           <div class="user-login-info">
             <a href="/accounts/login"><img src="{% static 'img/core-img/user.svg' %}" alt=""></a>
