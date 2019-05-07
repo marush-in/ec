@@ -20,6 +20,11 @@
             いいねした商品
           </div>
           <div class="card-body">
+            <div class="row mt-4">
+              {% for product in products %}
+                {% include 'includes/products/product.html' %}
+              {% endfor %}
+            </div>
           </div>
         </div>
       </div>

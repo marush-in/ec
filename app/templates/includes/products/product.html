@@ -3,7 +3,6 @@
     <div class="product-img">
         <img src="{{ product.image.url }}" alt="">
         <img class="hover-img" src="{{ product.image.url }}" alt="">
-        {{ product.is_like }}
         <div class="product-favourite">
           {% if user.is_authenticated %}
             <form method="POST" action="{% url 'products:like' product.id %}">

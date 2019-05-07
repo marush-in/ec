@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -7,7 +8,7 @@ from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 
 from .forms import RegisterShippingAddressForm, CustomUserUpdateForm
 from .models import CustomUser, ShippingAddress
-from products.models import Like
+from products.models import Product, Like
 
 
 class CustomUserUpdateView(LoginRequiredMixin, UpdateView):
@@ -68,6 +69,16 @@ class LikeListView(LoginRequiredMixin, ListView):
     context_object_name = 'products'
     model = Like
     template_name = 'accounts/like_list.html'
+
+    def get_queryset(self):
+        user = self.request.user
+        likes = Like.objects.filter(user=user)
+        queries = [Q(pk=like.product_id) for like in likes]
+        query = queries.pop()
+        for item in queries:
+            query |= item
+        queryset = Product.objects.filter(query)
+        return queryset
 
 
 @login_required
