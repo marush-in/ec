@@ -101,7 +101,7 @@
           </div>
           <div class="favourite-area">
             <a href="{% if user.is_authenticated %}{% url 'accounts:like-list' %}{% else %}/accounts/login/{% endif %}">
-              <img src="{% static 'img/core-img/heart.svg' %}" alt="">
+              <img src="{% static 'img/core-img/heart.svg' %}" alt=""><span>{{ number_likes }}</span>
             </a>
           </div>
           <div class="user-login-info">
