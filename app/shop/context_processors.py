@@ -8,8 +8,7 @@ def get_settgins(request):
     categories = Category.objects.order_by('-created_at')[:5]
     number_likes = 0
     if request.user.is_authenticated:
-        user = request.user
-        number_likes = Like.objects.filter(user=user).count()
+        number_likes = Like.objects.filter(user=request.user).count()
     return dict(
         settings=settings,
         categories=categories,
