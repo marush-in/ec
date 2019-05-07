@@ -81,7 +81,10 @@
                   </div>
                   <div class="product-favourite">
                     {% if user.is_authenticated %}
-                      <a href="" class="favme fa fa-heart"></a>
+                      <form method="POST" action="{% url 'products:like' popular_product.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="favme fa fa-heart"></button>
+                      </form>
                     {% else %}
                       <a href="/accounts/login" class="favme fa fa-heart"></a>
                     {% endif %}

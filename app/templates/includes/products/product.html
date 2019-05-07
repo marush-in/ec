@@ -3,9 +3,13 @@
     <div class="product-img">
         <img src="{{ product.image.url }}" alt="">
         <img class="hover-img" src="{{ product.image.url }}" alt="">
+        {{ product.is_like }}
         <div class="product-favourite">
           {% if user.is_authenticated %}
-            <a href="" class="favme fa fa-heart"></a>
+            <form method="POST" action="{% url 'products:like' product.id %}">
+              {% csrf_token %}
+              <button type="submit" class="favme fa fa-heart"></button>
+            </form>
           {% else %}
             <a href="/accounts/login" class="favme fa fa-heart"></a>
           {% endif %}

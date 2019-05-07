@@ -1,6 +1,6 @@
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import ListView, DetailView
-from .models import Product, Category, Brand
+from .models import Product, Category, Brand, Like
 
 
 class ProductListView(ListView):
@@ -75,3 +75,17 @@ class ProductListByBrandView(ListView):
         return Product.objects.filter(
             brand=brand, is_published=True
         ).count()
+
+
+def like(request, product_id):
+    user = request.user
+    product = Product.objects.get(pk=product_id)
+    if request.method == 'POST':
+        new_like, created = Like.objects.get_or_create(
+            user=user, product=product
+        )
+        if created:
+            return redirect(request.META['HTTP_REFERER'])
+        else:
+            Like.objects.filter(user=user.id, product=product_id).delete()
+            return redirect(request.META['HTTP_REFERER'])

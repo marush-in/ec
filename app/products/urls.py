@@ -4,6 +4,7 @@ from .views import (
     ProductDetailView,
     ProductListByCategoryView,
     ProductListByBrandView,
+    like,
 )
 
 app_name = 'products'
@@ -21,4 +22,5 @@ urlpatterns = [
         ProductListByBrandView.as_view(),
         name='products-brand'
     ),
+    path('<int:product_id>/like', like, name='like'),
 ]
