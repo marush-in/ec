@@ -7,6 +7,7 @@ from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 
 from .forms import RegisterShippingAddressForm, CustomUserUpdateForm
 from .models import CustomUser, ShippingAddress
+from products.models import Like
 
 
 class CustomUserUpdateView(LoginRequiredMixin, UpdateView):
@@ -61,6 +62,12 @@ class DeleteShippingAddressView(LoginRequiredMixin, DeleteView):
     model = ShippingAddress
     success_url = reverse_lazy('accounts:shipping-address-list')
     template_name = 'accounts/delete_shipping_address.html'
+
+
+class LikeListView(LoginRequiredMixin, ListView):
+    context_object_name = 'products'
+    model = Like
+    template_name = 'accounts/like_list.html'
 
 
 @login_required

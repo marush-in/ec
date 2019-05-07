@@ -6,6 +6,7 @@ from .views import (
     RegisterShippingAddressView,
     UpadateShippingAddressView,
     DeleteShippingAddressView,
+    LikeListView,
     confirmOrderHistory,
     confirmDeleteUser,
 )
@@ -38,6 +39,11 @@ urlpatterns = [
         'delete-shipping-address/<int:pk>',
         DeleteShippingAddressView.as_view(),
         name='delete-shipping-address'
+    ),
+    path(
+        'likes',
+        LikeListView.as_view(),
+        name='like-list'
     ),
     path(
         'mypage/confirm-order-history/',
