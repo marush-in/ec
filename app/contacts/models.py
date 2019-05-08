@@ -6,6 +6,7 @@ class Contact(models.Model):
     email = models.EmailField(verbose_name='メールアドレス', max_length=240)
     title = models.CharField(verbose_name='お問合せタイトル', max_length=240)
     content = models.TextField(verbose_name='お問合せ内容', max_length=4000)
+    created_at = models.DateTimeField(verbose_name='登録日時', auto_now_add=True)
 
     class Meta:
         verbose_name = 'お問い合わせ内容'
