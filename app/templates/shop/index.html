@@ -83,7 +83,7 @@
                     {% if user.is_authenticated %}
                       <form method="POST" action="{% url 'products:like' popular_product.id %}">
                         {% csrf_token %}
-                        <button type="submit" class="favme fa fa-heart"></button>
+                        <button type="submit" class="favme fa fa-heart {% if popular_product.id in liked_products %}active{% endif %}"></button>
                       </form>
                     {% else %}
                       <a href="/accounts/login" class="favme fa fa-heart"></a>
