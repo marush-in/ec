@@ -46,7 +46,7 @@ urlpatterns = [
         name='like-list'
     ),
     path(
-        'mypage/confirm-order-history/',
+        'order-history/',
         confirmOrderHistory,
         name='confirm-order-history'
     ),
