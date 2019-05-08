@@ -81,6 +81,7 @@ class DeleteShippingAddressView(LoginRequiredMixin, DeleteView):
 class LikeListView(LoginRequiredMixin, ListView):
     context_object_name = 'products'
     model = Like
+    paginate_by = 12
     template_name = 'accounts/like_list.html'
 
     def get_queryset(self):
