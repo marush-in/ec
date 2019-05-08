@@ -2,6 +2,8 @@ from django.urls import path
 from .views import (
     mypage,
     CustomUserUpdateView,
+    CustomUserDeleteView,
+    CustomUserDeleteDoneView,
     ShippingAddressListView,
     RegisterShippingAddressView,
     UpadateShippingAddressView,
@@ -19,6 +21,16 @@ urlpatterns = [
         'update-custom-user/<int:pk>',
         CustomUserUpdateView.as_view(),
         name='update-custom-user'
+    ),
+    path(
+        'delete-custom-user/<int:pk>',
+        CustomUserDeleteView.as_view(),
+        name='delete-custom-user'
+    ),
+    path(
+        'delete-done-costom-user',
+        CustomUserDeleteDoneView.as_view(),
+        name='delete-done-costom-user'
     ),
     path(
         'shipping-address-list',

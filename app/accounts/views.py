@@ -4,7 +4,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView, UpdateView, DeleteView
+from django.views.generic import (
+    CreateView, ListView, UpdateView, DeleteView, TemplateView
+)
 
 from .forms import RegisterShippingAddressForm, CustomUserUpdateForm
 from .models import CustomUser, ShippingAddress
@@ -26,6 +28,17 @@ class CustomUserUpdateView(LoginRequiredMixin, UpdateView):
         return reverse_lazy('accounts:update-custom-user', kwargs={
             'pk': pk}
         )
+
+
+class CustomUserDeleteView(LoginRequiredMixin, DeleteView):
+    context_object_name = 'user'
+    model = get_user_model()
+    success_url = reverse_lazy('accounts:delete-done-costom-user')
+    template_name = 'accounts/delete_costom_user.html'
+
+
+class CustomUserDeleteDoneView(TemplateView):
+    template_name = 'accounts/delete_done_costom_user.html'
 
 
 class ShippingAddressListView(LoginRequiredMixin, ListView):
