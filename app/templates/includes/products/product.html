@@ -10,7 +10,7 @@
               <button type="submit" class="favme fa fa-heart {% if product.id in liked_products %}active{% endif %}"></button>
             </form>
           {% else %}
-            <a href="/accounts/login" class="favme fa fa-heart"></a>
+            <button><a href="/accounts/login" class="favme fa fa-heart"></a></button>
           {% endif %}
         </div>
     </div>
