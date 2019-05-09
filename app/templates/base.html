@@ -80,8 +80,8 @@
                 <li>
                   <a href="{% url 'blog:index' %}">Blog</a>
                   <ul class="dropdown">
-                    {% for category in categories %}
-                      <li><a href="{% url 'blog:posts-category' category.slug %}">{{ category.name }}</a></li>
+                    {% for blog_category in blog_categories %}
+                      <li><a href="{% url 'blog:posts-category' blog_category.slug %}">{{ blog_category.name }}</a></li>
                     {% endfor %}
                   </ul>
                 </li>
