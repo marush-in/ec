@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'imagekit',
     # 'storages',
+    # 'stripe',
     'carts.apps.CartsConfig',
     'contacts.apps.ContactsConfig',
     'common.apps.CommonConfig',
