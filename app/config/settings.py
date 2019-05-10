@@ -14,8 +14,7 @@ SECRET_KEY = ')pw7w4%+ef*v$&z&iiiql#ss*evhn11bl2vp5un*omp64tiax#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'false') == 'true'
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '')
 INTERNAL_IPS = global_ip_list(['127.0.0.1', '172.*.*.*',])
 
 
