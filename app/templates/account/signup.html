@@ -26,7 +26,7 @@
             <span class="text-danger">{{ form.full_name.errors }}</span>
           {% endif %}
         </label>
-        <input type="text" name="full_name" placeholder="氏名" required class="form-control">
+        <input type="text" name="full_name" placeholder="氏名" required class="form-control" {% if form.full_name.value %}value="{{ form.full_name.value }}"{% endif %}>
       </div>
       <div class="form-group">
         <label>
@@ -35,7 +35,7 @@
             <span class="text-danger">{{ form.name_kana.errors }}</>
           {% endif %}
         </label>
-        <input type="text" name="name_kana" placeholder="氏名カナ" required class="form-control">
+        <input type="text" name="name_kana" placeholder="氏名カナ" required class="form-control" {% if form.name_kana.value %}value="{{ form.name_kana.value }}"{% endif %}>
       </div>
       <div class="form-group">
         <label for="id_email">
@@ -44,7 +44,7 @@
             <span class="text-danger">{{ form.email.errors }}</>
           {% endif %}
         </label>
-        <input type="email" name="email" placeholder="メールアドレス" required id="id_email" class="form-control">
+        <input type="email" name="email" placeholder="メールアドレス" required id="id_email" class="form-control" {% if form.email.value %}value="{{ form.email.value }}"{% endif %}>
       </div>
       <div class="form-group">
         <label for="id_password1">
@@ -53,7 +53,7 @@
             <span class="text-danger">{{ form.password1.errors }}</>
           {% endif %}
         </label>
-        <input type="password" name="password1" placeholder="パスワード" required id="id_password1" class="form-control">
+        <input type="password" name="password1" placeholder="パスワード" required id="id_password1" class="form-control" {% if form.password1.value %}value="{{ form.password1.value }}"{% endif %}>
       </div>
       <div class="form-group">
         <label for="id_password2">
@@ -62,7 +62,7 @@
             <span class="text-danger">{{ form.password2.errors }}</>
           {% endif %}
         </label>
-        <input type="password" name="password2" placeholder="パスワード(確認用)" required id="id_password2" class="form-control">
+        <input type="password" name="password2" placeholder="パスワード(確認用)" required id="id_password2" class="form-control" {% if form.password2.value %}value="{{ form.password2.value }}"{% endif %}>
       </div>
       {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
