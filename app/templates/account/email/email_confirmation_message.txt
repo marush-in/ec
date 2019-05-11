@@ -1,8 +1,19 @@
-{% load account %}{% user_display user as user_display %}{% load i18n %}{% autoescape off %}{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Hello from {{ site_name }}!
+{{ user.email }}さま
 
-You're receiving this e-mail because user {{ user_display }} has given yours as an e-mail address to connect their account.
+下記の URL へアクセスされますと登録手続きに進めることができます。
 
-To confirm this is correct, go to {{ activate_url }}
-{% endblocktrans %}{% endautoescape %}
-{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Thank you from {{ site_name }}!
-{{ site_domain }}{% endblocktrans %}
+URL:
+{{ activate_url }}
+
+※誤ってこちらのメールを受け取られた場合は、お手数ですが破棄してください。
+
+================================================================
+
+ECサイト
+https://
+
+メールアドレス：xxxx@gmail.com
+電話番号：000-111-222
+営業時間：月～金 10：00-18：00
+
+================================================================
