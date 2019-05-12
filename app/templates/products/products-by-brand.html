@@ -40,9 +40,13 @@
               </div>
             </div>
             <div class="row">
-              {% for product in products %}
-                {% include 'includes/products/product.html' %}
-              {% endfor %}
+              {% if products %}
+                {% for product in products %}
+                  {% include 'includes/products/product.html' %}
+                {% endfor %}
+              {% else %}
+                <p>商品はございません。</p>
+              {% endif %}
             </div>
           </div>
           {% include 'includes/common/pagination.html' %}
