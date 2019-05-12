@@ -202,3 +202,5 @@ ACCOUNT_EMAIL_REQUIRED = True
 LOGIN_REDIRECT_URL = '/accounts/mypage/'
 ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
 LOGIN_URL = '/accounts/login/'
+
+DEFAULT_FROM_EMAIL = 'test@gmail.com'
