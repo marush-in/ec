@@ -27,27 +27,33 @@
     <div class="container">
       <h2 class="text-center mb-5">{{ category.name }}に関する記事一覧</h2>
       <div class="row">
-        {% for post in posts %}
-          <div class="col-12 col-lg-6">
-            <div class="single-blog-area mb-50">
-              {% if post.eyecatch　%}
-                <img src="{{ post.eyecatch.url }}" alt="">
-              {% else %}
-                <img src="{% static 'img/blog/noimage.png' %}" alt="">
-              {% endif %}
-              <div class="post-title">
-                <a href="{% url 'blog:post-detail' post.slug %}">{{ post.title }}</a>
-              </div>
-              <div class="hover-content">
-                <div class="hover-post-title">
+        {% if posts %}
+          {% for post in posts %}
+            <div class="col-12 col-lg-6">
+              <div class="single-blog-area mb-50">
+                {% if post.eyecatch　%}
+                  <img src="{{ post.eyecatch.url }}" alt="">
+                {% else %}
+                  <img src="{% static 'img/blog/noimage.png' %}" alt="">
+                {% endif %}
+                <div class="post-title">
                   <a href="{% url 'blog:post-detail' post.slug %}">{{ post.title }}</a>
                 </div>
-                <p>{{ post.description | truncatechars:162 }}</p>
-                <a href="{% url 'blog:post-detail' post.slug %}">Continue reading <i class="fa fa-angle-right"></i></a>
+                <div class="hover-content">
+                  <div class="hover-post-title">
+                    <a href="{% url 'blog:post-detail' post.slug %}">{{ post.title }}</a>
+                  </div>
+                  <p>{{ post.description | truncatechars:162 }}</p>
+                  <a href="{% url 'blog:post-detail' post.slug %}">Continue reading <i class="fa fa-angle-right"></i></a>
+                </div>
               </div>
             </div>
+          {% endfor %}
+        {% else %}
+          <div class="col-12">
+            <p class="text-center">記事はございません</p>
           </div>
-        {% endfor %}
+        {% endif %}
       </div>
       {% include 'includes/common/pagination.html' %}
     </div>
