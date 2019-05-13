@@ -58,12 +58,12 @@ urlpatterns = [
         name='like-list'
     ),
     path(
-        'order-history/',
+        'order-history',
         confirmOrderHistory,
         name='confirm-order-history'
     ),
     path(
-        'mypage/confirm-delete-user/',
+        'mypage/confirm-delete-user',
         confirmDeleteUser,
         name='confirm-delete-user'
     ),

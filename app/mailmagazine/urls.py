@@ -10,7 +10,7 @@ app_name = 'mailmagazine'
 urlpatterns = [
     path('', RegisterMailMagazine.as_view(), name='index'),
     path(
-        'confirm/',
+        'confirm',
         RegisterMailMagazineConfirm.as_view(),
         name='register-mailmagazine-confirm'
     ),
