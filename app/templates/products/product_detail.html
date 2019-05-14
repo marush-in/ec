@@ -21,10 +21,8 @@
       </div>
     </div>
     <div class="single_product_desc clearfix">
-      <span>{{ product.category }}</span>
-      <a href="">
-        <h2>{{ product.name }}</h2>
-      </a>
+      <a href="{% url 'products:products-category' product.category.slug %}"><span>{{ product.category }}</span></a>
+      <h2>{{ product.name }}</h2>
       <p class="product-price"><span class="old-price">¥{{ product.price }}</span> $49.00</p>
       <p class="product-desc">{% autoescape off %}{{ product.description }}{% endautoescape %}</p>
       <div class="cart-fav-box mt-4" style="display: inline-block">
