@@ -56,7 +56,6 @@ class RegisterShippingAddressView(LoginRequiredMixin, CreateView):
     form_class = RegisterShippingAddressForm
     model = ShippingAddress
     success_url = reverse_lazy('accounts:shipping-address-list')
-    success_url = reverse_lazy('accounts:shipping-address-list')
     template_name = 'accounts/register_shipping_address.html'
 
     def form_valid(self, form):
