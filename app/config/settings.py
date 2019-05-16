@@ -9,10 +9,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = ')pw7w4%+ef*v$&z&iiiql#ss*evhn11bl2vp5un*omp64tiax#'
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'false') == 'true'
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '')
 INTERNAL_IPS = global_ip_list(['127.0.0.1', '172.*.*.*',])
