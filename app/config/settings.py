@@ -2,13 +2,10 @@ import os
 
 from config.utils import global_ip_list
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
+# Basic 
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
-
 SECRET_KEY = ')pw7w4%+ef*v$&z&iiiql#ss*evhn11bl2vp5un*omp64tiax#'
 DEBUG = os.environ.get('DEBUG', 'false') == 'true'
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '')
