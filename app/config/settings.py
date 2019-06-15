@@ -138,6 +138,39 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = '/var/www/media'
 
 
+# Logging
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+
+    'formatters': {
+        'all': {
+            'format': "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt': '%H:%M:%S',
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'django.log'),
+            'formatter': 'all',
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'all',
+        },
+    },
+    'loggers': {
+        'command': {
+            'handlers': ['file', 'console'],
+            'level': 'DEBUG',
+        }
+    }
+}
+
+
 # Admin Site
 ADMIN_URL = os.environ['ADMIN_URL']
 ADMIN_SITE_TITLE = 'ECサイト管理画面'
