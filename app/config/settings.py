@@ -1,4 +1,5 @@
 import os
+import raven
 
 from config.utils import global_ip_list
 
@@ -169,6 +170,16 @@ LOGGING = {
         }
     }
 }
+
+
+# Sentry
+SENTRY_DSN = os.environ.get('SENTRY_DSN')
+if SENTRY_DSN:
+    INSTALLED_APPS += ['raven.contrib.django.raven_compat']
+    RAVEN_CONFIG = {
+        'dsn': SENTRY_DSN,
+        'release': raven.fetch_git_sha(os.path.abspath(os.pardir)),
+    }
 
 
 # Admin Site
