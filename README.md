@@ -33,6 +33,11 @@
 ./operate initdb
 ```
 
+・アプリケーションのコンテナに入る
+```
+./operate login
+```
+
 ・Postgresqlのシェルにログインする
 ```
 ./operate postgres

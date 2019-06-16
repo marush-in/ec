@@ -59,6 +59,10 @@ case "$1" in
     $RUN_APP ./manage.py createfactorydata
     ;;
 
+  "login")
+    docker exec -it $APP /bin/sh
+    ;;
+
   "postgres")
     docker-compose exec ec-postgres psql -U postgres
     ;;
